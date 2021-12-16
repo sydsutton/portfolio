@@ -1,4 +1,24 @@
+body {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  width: 7rem;
+  position: fixed;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
 
+.mb-n5 {
+  z-index: 1;
+}
+
+.navbar {
+  z-index: -1;
+}

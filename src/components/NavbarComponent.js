@@ -6,31 +6,34 @@ import {
     Collapse,
     Nav,
     NavItem, 
-    NavLink
+    NavLink, 
+    Icon
 } from "reactstrap"
 
 const NavbarComponent = () => {
     const [isOpen, setIsOpen ] = useState(false)
 
     return (
-        <div className="float-left">
-            <Navbar className="navbar navbar-expand-md navbar-light">
-                <NavbarBrand href="/">Me</NavbarBrand>
-                <NavbarToggler onClick={() => setIsOpen(!isOpen)}/>
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav className="flex-column d-md-block">
-                        <NavItem>
-                            <NavLink href="/">About</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/">Projects</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/">Contact</NavLink>
-                        </NavItem>
-                    </Nav>
-                </Collapse>
-            </Navbar>
+        <div>
+            <NavbarToggler className="bg-light d-block d-sm-none position-absolute m-3" onClick={() => setIsOpen(!isOpen)}/>
+            <Collapse isOpen={isOpen} className="d-sm-block">
+                <Navbar className="navbar navbar-light border border-danger d-flex flex-row h-100">
+                    <div className="flex-column h-100">
+                        <NavbarBrand className="border border-warning" href="/">Me</NavbarBrand>
+                        <Nav className="d-flex flex-column border border-success text-left">
+                            <NavItem>
+                                <NavLink href="/">About</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/">Projects</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/">Contact</NavLink>
+                            </NavItem>
+                        </Nav>
+                    </div>
+                </Navbar>
+            </Collapse>
         </div>
     )
 }
