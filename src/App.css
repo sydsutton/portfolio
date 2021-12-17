@@ -4,18 +4,26 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Comfortaa', cursive;
 }
 
 .jumbotron {
   height: 50vh;
   border-radius: 0;
-  background-image: linear-gradient(135deg, #8ed9e7, #8353d7);
+  background-color: transparent;
   position: relative;
   z-index: -10;
 }
 
+.img-col {
+  min-width: 10rem;
+  min-height: 23rem;
+}
+
 #name-heading {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: 300;
+  color: #5e60e2;
 }
 
 #img {
@@ -73,6 +81,22 @@ body {
   background-image: linear-gradient(135deg, #8ed9e7, #8353d7);
   box-shadow: -5px 5px 10px rgba(0,0,0,.2);
 }
+
+/* #circle-1:focus,
+#circle-2:hover,
+#circle-3:hover,
+#circle-4:hover,
+#img:hover {
+  transform: scale(1.2);
+} */
+
+
+.btn {
+  background-color: #5e60e2;
+  margin: 0 1rem;
+  border-radius: 20px;
+}
+
 
 .navbar {
   width: 7rem;
