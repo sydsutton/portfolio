@@ -25,6 +25,9 @@ body {
   font-weight: 300;
   color: #5e60e2;
 }
+h1, h2 {
+  color: #5e60e2
+}
 
 #img {
   z-index: 5;
@@ -82,14 +85,13 @@ body {
   box-shadow: -5px 5px 10px rgba(0,0,0,.2);
 }
 
-/* #circle-1:focus,
+/* #circle-1:hover,
 #circle-2:hover,
 #circle-3:hover,
 #circle-4:hover,
 #img:hover {
   transform: scale(1.2);
 } */
-
 
 .btn {
   background-color: #5e60e2;
