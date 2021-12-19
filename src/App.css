@@ -5,6 +5,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Comfortaa', cursive;
+  background-image: url(./images/background.png);
+  background-size: cover;
 }
 
 
@@ -14,7 +16,7 @@ body {
 }
 
 #name-heading {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 300;
   color: #5e60e2;
   width: 100%;
@@ -92,6 +94,10 @@ h1, h2 {
   background-color: #5e60e2;
   margin: 0 1rem;
   border-radius: 20px;
+}
+
+.btn-wide {
+  width: 200px;
 }
 
 

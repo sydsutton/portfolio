@@ -36,6 +36,16 @@ const projects = [
         ],
         repo: "https://github.com/sydsutton/ReactRecipeApp"
     },
+    {
+        title: "Portfolio Website",
+        tech: [
+            "React JS",
+            "Bootstrap",
+            "React Hooks",
+            "Material Design"
+        ],
+        repo: "https://github.com/sydsutton/ReactRecipeApp"
+    },
 ]
 
 export default projects
