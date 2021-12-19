@@ -11,7 +11,9 @@ import {
     Dialog,
     FormGroup,
     Input,
-    FormLabel
+    FormLabel,
+    ImageList,
+    ImageListItem
  } from '@mui/material'
 import {
     LinkedIn,
@@ -20,9 +22,11 @@ import {
     Code, 
     Edit,
     AlternateEmail,
-    ArrowUpward
+    ArrowUpward,
+    Article
  } from '@mui/icons-material';
 import projects from "../projects"
+import {imageData} from "../images/imageData"
 
 const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
@@ -34,20 +38,23 @@ const MainComponent = () => {
         <div className="text-center">
             <div className="container pt-5 pl-5">
                 <div className="row">
-                    <div className="img-col col-sm-3 mt-3">
+                    <div className="img-col col-md-3 mt-3">
                         <div id="circle-1"></div>
                         <div id="circle-2"></div>
                         <div id="circle-3"></div>
                         <div id="circle-4"></div>
                         <img src={city} alt="Me" id="img" height="300" width="300" className="rounded-circle" />
                     </div>
-                    <div className="col-sm-9 text-light text-right mt-3 w-100">
+                    <div className="col-md-9 text-light text-right mt-3 w-100">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
                         <h4 className="text-dark">Front End Web Developer</h4>
                         <div className="mt-3">
-                            <a className="btn text-light" href="/">Resume</a>
-                            <a className="btn text-light" href="https://www.linkedin.com/in/andrew-sutton-aa3326205/"><LinkedIn /></a>
-                            <a className="btn text-light" href="/"><GitHub /></a>
+                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><Article /></Button>
+                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><LinkedIn /></Button>
+                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://github.com/sydsutton")}><GitHub /></Button>
+                        </div>
+                        <div className="ml-auto text-dark w-50 mt-4">
+                            <h5>You can’t use up creativity. The more you use, the more you have.”</h5><p> – Maya Angelou</p>
                         </div>
                     </div>
                 </div>
@@ -109,10 +116,10 @@ const MainComponent = () => {
             <Collapse in={projectOpen} timeout={1000}>
                 <Paper className="container my-3 gradient" elevation={1}>
                     <div className="row">
-                        {projects.map(project => {
+                        {projects.map((project, index) => {
                             return (
                             <div className="col-lg-6">
-                                <Card className="mt-4 p-3">
+                                <Card key={index} className="mt-4 p-3">
                                     <div className="row">
                                         <div className="col-sm-4">
                                             <img src={project.img} alt="A book search application called yourshelf" height="400" />
@@ -122,9 +129,9 @@ const MainComponent = () => {
                                             <p>{project.description}</p>
                                             <h5>Technology Used</h5>
                                             <ul>
-                                                {project.tech.map(tech => {
+                                                {project.tech.map((tech, index) => {
                                                     return (
-                                                        <li>{tech}</li>
+                                                        <li key={index}>{tech}</li>
                                                     )
                                                 })
                                             }
@@ -164,7 +171,21 @@ const MainComponent = () => {
                 <Paper className="container" elevation={1}>
                     <div className="row gradient">
                         <div className="col">
-                            <p>Hello</p>
+                            <ImageList sx={{ width: "100%", height: "auto"}} cols={3} rowHeight={164}>
+                                {imageData.map((image, index) => {
+                                    // console.log(image.src)
+                                    return (
+                                        <ImageListItem key={index}>
+                                            <img
+                                                src={`${image.src}?w=161&fit=crop&auto=format`}
+                                                srcSet={image}
+                                                // alt={item.title}
+                                                loading="lazy"
+                                            />
+                                        </ImageListItem>
+                                    )
+                                })}
+                            </ImageList>
                         </div>
                     </div>
                 </Paper>

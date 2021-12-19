@@ -12,7 +12,6 @@ body {
   background-attachment: fixed;
 }
 
-
 .img-col {
   min-width: 10rem;
   min-height: 23rem;
@@ -84,14 +83,14 @@ h1, h2 {
   background-image: linear-gradient(135deg, #8ed9e7, #8353d7);
   box-shadow: -5px 5px 10px rgba(0,0,0,.2);
 }
-
+/* 
 #circle-1:hover,
 #circle-2:hover,
 #circle-3:hover,
 #circle-4:hover,
 #img:hover {
   transform: scale(1.05);
-}
+} */
 
 .btn {
   background-image: linear-gradient(135deg, #bfa0f5, #8353d7);
@@ -112,7 +111,6 @@ h1, h2 {
   color: "rgba(0,0,0,.9)";
   border: "none"
 }
-
 
 .navbar {
   width: 7rem;

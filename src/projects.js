@@ -1,7 +1,7 @@
 const projects = [
     {
         title: "YourShelf",
-        img: "./images/YourShelf.png",
+        img: "/images/YourShelf.png",
         alt: "A book search application called yourshelf",
         description: "A book application where the user can search for any book, either by title or subject. After loggin in to their account, the user can then save any amount of books in their digital bookshelf.",
         tech: [
