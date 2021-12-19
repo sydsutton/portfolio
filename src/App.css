@@ -1,12 +1,15 @@
 body {
   background-color: #F5F5F5;
-  min-height: 100vh;
+  height: 100vh;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Comfortaa', cursive;
   background-image: url(./images/background.png);
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
 }
 
 
@@ -91,13 +94,23 @@ h1, h2 {
 }
 
 .btn {
-  background-color: #5e60e2;
+  background-image: linear-gradient(135deg, #bfa0f5, #8353d7);
   margin: 0 1rem;
-  border-radius: 20px;
+  border: none;
 }
 
 .btn-wide {
   width: 200px;
+}
+
+.gradient {
+  background-image: linear-gradient(135deg, #8ed9e7, #b28cf3);
+}
+
+.btn-up {
+  background-color: transparent;
+  color: "rgba(0,0,0,.9)";
+  border: "none"
 }
 
 
