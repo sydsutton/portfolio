@@ -8,13 +8,17 @@ import cover from "../images/gallery/FrontCover.jpg"
 import swings from "../images/gallery/swings.jpg"
 import city from "../images/gallery/City.jpg"
 
-import react from "../images/React.png"
-import allthree from "../images/allthree.png"
+import react from "../images/react.png"
+import native from "../images/native.png"
+import css from "../images/css.png"
+import html from "../images/html.png"
+import javascript from "../images/javascript.png"
 import bootstrap from "../images/bootstrap.png"
 import git from "../images/git.png"
 import github from "../images/github.png"
 import vscode from "../images/vscode.png"
 import api from "../images/api.png"
+import mui from "../images/mui.png"
 
 import { 
     Card,
@@ -37,8 +41,7 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article,
-    Handyman
+    Article
  } from '@mui/icons-material';
 import projects from "../projects"
 
@@ -47,7 +50,6 @@ const MainComponent = () => {
     const [projectOpen, setProjectOpen] = useState(false)
     const [photoOpen, setPhotoOpen] = useState(false)
     const [dialogOpen, setDialogOpen] = useState(false)
-    const [codeOpen, setCodeOpen] = useState(false)
 
     return (
         <div className="text-center">
@@ -60,16 +62,66 @@ const MainComponent = () => {
                         <div id="circle-4"></div>
                         <img src={me} alt="Me" id="img" height="300" width="300" className="rounded-circle" />
                     </div>
-                    <div className="col-md-9 text-light text-right mt-3 w-100">
+                    <div className="col-md-9 text-right mt-3 w-100 mb-4 border-bottom">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
-                        <h4 className="text-dark">Front End Web Developer</h4>
+                        <h5 className="text-dark">Front End Web Developer</h5>
+                        <h6>Oswego, IL</h6>
                         <div className="mt-3">
-                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><Article /></Button>
+                            <Button variant="contained" endIcon={<Article />} className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}>Resumé</Button>
                             <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><LinkedIn /></Button>
                             <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://github.com/sydsutton")}><GitHub /></Button>
                         </div>
                         <div className="ml-auto text-dark w-50 mt-4">
                             <h5>You can’t use up creativity. The more you use, the more you have.”</h5><p> – Maya Angelou</p>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <h5 className="mb-4">So far, I know...</h5>
+                        <div className="row justify-content-between">
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={html} alt="html 5" height="50"/>
+                                <p className="small">HTML 5</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={css} alt="css 3" height="50"/>
+                                <p className="small">CSS 3</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={javascript} alt="javascript" height="50"/>
+                                <p className="small">Javascript</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={react} alt="react js" height="50"/>
+                                <p className="small">React JS</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={native} alt="react native" height="50"/>
+                                <p className="small">React Native</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={bootstrap} alt="bootstrap" height="50"/>
+                                <p className="small">Bootstrap</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={mui} alt="material ui" height="50"/>
+                                <p className="small">Material UI</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={git} alt="git" height="50"/>
+                                <p className="small">Git</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={github} alt="github" height="50"/>
+                                <p className="small">GitHub</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={vscode} alt="vscode" height="50"/>
+                                <p className="small">VS Code</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={api} alt="api's" height="50"/>
+                                <p className="small">API's</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,7 +131,6 @@ const MainComponent = () => {
                 className="btn mt-5 btn-wide mb-2" 
                 onClick={() => setAboutOpen(!aboutOpen)}
                 endIcon={<EmojiPeople />}
-                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
             >
                     Background
             </Button>
@@ -87,16 +138,22 @@ const MainComponent = () => {
                 <Paper className="container my-3 text-dark gradient" elevation={1}>
                     <div className="row justify-content-between">
                         <Card className="col-md-5 m-3">
-                            <h4 className="mt-3">Me</h4>
-                            <p>An Indoor Skydiving Instructor turned Front End Developer. 
+                            <h4 className="mt-3 border-bottom">About Me</h4>
+                            <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. 
                                 Whether it's painting, photography, photo editing, or music, I have always 
-                                loved to create things from scratch; naturally coding fit me well. Like a lot 
+                                loved to create things from scratch; naturally coding fit me well.<br/> Like a lot 
                                 of other people in 2021, I was looking for a change in careers. After teaching 
-                                myself coding for a couple of months, I decided to enroll in a coding bootcamp 
-                                through NuCamp, and the rest is history.</p>
+                                myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
+                                through NuCamp, and haven't looked back.</p>
+                                <h4 className="border-bottom">Three facts about me:</h4>
+                                <ul className="text-left">
+                                    <li>I've traveled the world as an Indoor Skydiving trainer</li>
+                                    <li>I play guitar in a band</li>
+                                    <li>I just got a dog...<br/> I also just found out that I'm allergic to dogs</li>
+                                </ul>
                         </Card>
                         <Card className="col-md-5 m-3">
-                            <h4 className="mt-3">Education</h4>
+                            <h4 className="mt-3 border-bottom">Education</h4>
                             <ul className="text-left">
                                 <li><h5>NuCamp Front End Web Development</h5></li>
                                 <p>Online Web Development Bootcamp<br/>
@@ -105,6 +162,12 @@ const MainComponent = () => {
                                 <li><h5>Bachelor of Arts in Psychology/ Minor in Communications</h5></li>
                                 <p>Northern Illinois University 2014<br/>
                                  Graduated cum laude</p>
+                            </ul>
+                            <h4 className="mt-5 border-bottom">Work History</h4>
+                            <ul className="text-left">
+                                <li><h5>iFLY Indoor Skydiving</h5></li>
+                                <p>Lead Instructor/ Shift Supervisor<br/>
+                                2014-2021</p>
                             </ul>
                         </Card>
                     </div>
@@ -118,34 +181,11 @@ const MainComponent = () => {
                     </Button>
                 </Paper>
             </Collapse>
-            <Button 
-                variant="contained" 
-                className="btn btn-wide mb-2" 
-                onClick={() => setCodeOpen(!codeOpen)}
-                endIcon={<Handyman />}
-                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
-            >
-                    Tools
-            </Button>
-            <Collapse in={codeOpen} timeout={1000}>
-                <Paper className="container my-3 py-4 gradient" elevation={1}>
-                    <div className="row justify-content-center">
-                        <img className="text-right mx-2" src={allthree} height="50"/>
-                        <img className="text-right mx-2" src={react} height="50"/>
-                        <img className="text-right mx-2" src={bootstrap} height="50"/>
-                        <img className="text-right mx-2" src={git} height="50"/>
-                        <img className="text-right mx-2" src={github} height="50"/>
-                        <img className="text-right mx-2" src={vscode} height="50"/>
-                        <img className="text-right mx-2" src={api} height="50"/>
-                    </div>
-                </Paper>
-            </Collapse>
 
             <Button 
                 variant="contained" 
                 onClick={() => setProjectOpen(!projectOpen)} 
                 className="btn btn-wide mb-2"
-                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                 endIcon={<Code />}
             >
                 Projects
@@ -187,7 +227,6 @@ const MainComponent = () => {
                     <Button 
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up" 
-                        sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                         onClick={() => setProjectOpen(!projectOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
@@ -198,7 +237,6 @@ const MainComponent = () => {
             <Button 
                 variant="contained" 
                 onClick={() => setPhotoOpen(!photoOpen)} 
-                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                 className="btn btn-wide mb-2"
                 endIcon={<Edit />}
             >
@@ -257,7 +295,6 @@ const MainComponent = () => {
                     <Button 
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up" 
-                        sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                         onClick={() => setPhotoOpen(!photoOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
@@ -268,7 +305,6 @@ const MainComponent = () => {
             <Button 
                 variant="contained" 
                 className="btn btn-wide mb-5" 
-                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                 onClick={() => setDialogOpen(!dialogOpen)}
                 endIcon={<AlternateEmail />}
             >
