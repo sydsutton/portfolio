@@ -1,8 +1,21 @@
 import React, {useState} from "react"
-import city from "../images/me.png"
-// import {
-//     Card, 
-// } from "reactstrap"
+
+import me from "../images/me.png"
+import album from "../images/gallery/Album.jpg"
+import marble from "../images/gallery/Marble.jpg"
+import ellie from "../images/gallery/Ellie.jpg"
+import cover from "../images/gallery/FrontCover.jpg"
+import swings from "../images/gallery/swings.jpg"
+import city from "../images/gallery/City.jpg"
+
+import react from "../images/React.png"
+import allthree from "../images/allthree.png"
+import bootstrap from "../images/bootstrap.png"
+import git from "../images/git.png"
+import github from "../images/github.png"
+import vscode from "../images/vscode.png"
+import api from "../images/api.png"
+
 import { 
     Card,
     Collapse,
@@ -15,6 +28,7 @@ import {
     ImageList,
     ImageListItem
  } from '@mui/material'
+
 import {
     LinkedIn,
     GitHub,
@@ -23,16 +37,17 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article
+    Article,
+    Handyman
  } from '@mui/icons-material';
 import projects from "../projects"
-import {imageData} from "../images/imageData"
 
 const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
     const [projectOpen, setProjectOpen] = useState(false)
     const [photoOpen, setPhotoOpen] = useState(false)
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [codeOpen, setCodeOpen] = useState(false)
 
     return (
         <div className="text-center">
@@ -43,7 +58,7 @@ const MainComponent = () => {
                         <div id="circle-2"></div>
                         <div id="circle-3"></div>
                         <div id="circle-4"></div>
-                        <img src={city} alt="Me" id="img" height="300" width="300" className="rounded-circle" />
+                        <img src={me} alt="Me" id="img" height="300" width="300" className="rounded-circle" />
                     </div>
                     <div className="col-md-9 text-light text-right mt-3 w-100">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
@@ -101,6 +116,28 @@ const MainComponent = () => {
                     >
                         Back up
                     </Button>
+                </Paper>
+            </Collapse>
+            <Button 
+                variant="contained" 
+                className="btn btn-wide mb-2" 
+                onClick={() => setCodeOpen(!codeOpen)}
+                endIcon={<Handyman />}
+                sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
+            >
+                    Tools
+            </Button>
+            <Collapse in={codeOpen} timeout={1000}>
+                <Paper className="container my-3 py-4 gradient" elevation={1}>
+                    <div className="row justify-content-center">
+                        <img className="text-right mx-2" src={allthree} height="50"/>
+                        <img className="text-right mx-2" src={react} height="50"/>
+                        <img className="text-right mx-2" src={bootstrap} height="50"/>
+                        <img className="text-right mx-2" src={git} height="50"/>
+                        <img className="text-right mx-2" src={github} height="50"/>
+                        <img className="text-right mx-2" src={vscode} height="50"/>
+                        <img className="text-right mx-2" src={api} height="50"/>
+                    </div>
                 </Paper>
             </Collapse>
 
@@ -168,31 +205,69 @@ const MainComponent = () => {
                 Photo Editing
             </Button>
             <Collapse in={photoOpen} timeout={1000}>
-                <Paper className="container" elevation={1}>
-                    <div className="row gradient">
+                <Paper className="container gradient p-3 my-3" elevation={1}>
+                    <div className="row">
                         <div className="col">
-                            <ImageList sx={{ width: "100%", height: "auto"}} cols={3} rowHeight={164}>
-                                {imageData.map((image, index) => {
-                                    // console.log(image.src)
-                                    return (
-                                        <ImageListItem key={index}>
-                                            <img
-                                                src={`${image.src}?w=161&fit=crop&auto=format`}
-                                                srcSet={image}
-                                                // alt={item.title}
-                                                loading="lazy"
-                                            />
-                                        </ImageListItem>
-                                    )
-                                })}
+                            <ImageList sx={{ width: "auto", height: "auto"}} cols={3} rowHeight="auto">
+                                <ImageListItem>
+                                    <img
+                                        src={album}
+                                        alt="album cover"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                                <ImageListItem>
+                                    <img
+                                        src={marble}
+                                        alt="marble in hand"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                                <ImageListItem>
+                                    <img
+                                        src={ellie}
+                                        alt="girl listening to music"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                                <ImageListItem>
+                                    <img
+                                        src={city}
+                                        alt="man with eye sewn shut"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                                <ImageListItem>
+                                    <img
+                                        src={swings}
+                                        alt="swings tied together"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                                <ImageListItem>
+                                    <img
+                                        src={cover}
+                                        alt="album cover"
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
                             </ImageList>
                         </div>
                     </div>
+                    <Button 
+                        endIcon={<ArrowUpward />}
+                        className="my-3 btn-up" 
+                        sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
+                        onClick={() => setPhotoOpen(!photoOpen)}
+                        sx={{color: "rgba(0,0,0,.9)"}}
+                    >
+                        Back up
+                    </Button>
                 </Paper>
             </Collapse>
             <Button 
                 variant="contained" 
-                className="btn btn-wide" 
+                className="btn btn-wide mb-5" 
                 sx={{backgroundImage: "linear-gradient(135deg, #8ed9e7, #8353d7)"}}
                 onClick={() => setDialogOpen(!dialogOpen)}
                 endIcon={<AlternateEmail />}
