@@ -18,7 +18,8 @@ import git from "../images/git.png"
 import github from "../images/github.png"
 import vscode from "../images/vscode.png"
 import api from "../images/api.png"
-import mui from "../images/mui.png"
+import photoshop from "../images/photoshop.png"
+import redux from "../images/redux.png"
 
 import { 
     Card,
@@ -30,7 +31,7 @@ import {
     Input,
     FormLabel,
     ImageList,
-    ImageListItem
+    ImageListItem,
  } from '@mui/material'
 
 import {
@@ -50,6 +51,8 @@ const MainComponent = () => {
     const [projectOpen, setProjectOpen] = useState(false)
     const [photoOpen, setPhotoOpen] = useState(false)
     const [dialogOpen, setDialogOpen] = useState(false)
+    const [imageOpen, setImageOpen] = useState(false)
+    const [selectedImage, setSelectedImage] = useState("")
 
     return (
         <div className="text-center">
@@ -72,12 +75,12 @@ const MainComponent = () => {
                             <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://github.com/sydsutton")}><GitHub /></Button>
                         </div>
                         <div className="ml-auto text-dark w-50 mt-4">
-                            <h5>You can’t use up creativity. The more you use, the more you have.”</h5><p> – Maya Angelou</p>
+                            <h5>“We have to continually be jumping off cliffs and developing our wings on the way down.”</h5><p>― Kurt Vonnegut</p>
                         </div>
                     </div>
                     <div className="col">
                         <h5 className="mb-4">So far, I know...</h5>
-                        <div className="row justify-content-between">
+                        <div className="row justify-content-between mx-auto">
                             <div>
                                 <img className="text-right mx-2 mb-2" src={html} alt="html 5" height="50"/>
                                 <p className="small">HTML 5</p>
@@ -99,12 +102,12 @@ const MainComponent = () => {
                                 <p className="small">React Native</p>
                             </div>
                             <div>
-                                <img className="text-right mx-2 mb-2" src={bootstrap} alt="bootstrap" height="50"/>
-                                <p className="small">Bootstrap</p>
+                                <img className="text-right mx-2 mb-2" src={redux} alt="react redux" height="50"/>
+                                <p className="small">React Redux</p>
                             </div>
                             <div>
-                                <img className="text-right mx-2 mb-2" src={mui} alt="material ui" height="50"/>
-                                <p className="small">Material UI</p>
+                                <img className="text-right mx-2 mb-2" src={bootstrap} alt="bootstrap" height="50"/>
+                                <p className="small">Bootstrap</p>
                             </div>
                             <div>
                                 <img className="text-right mx-2 mb-2" src={git} alt="git" height="50"/>
@@ -121,6 +124,10 @@ const MainComponent = () => {
                             <div>
                                 <img className="text-right mx-2 mb-2" src={api} alt="api's" height="50"/>
                                 <p className="small">API's</p>
+                            </div>
+                            <div>
+                                <img className="text-right mx-2 mb-2" src={photoshop} alt="photoshop" height="50"/>
+                                <p className="small">Photoshop</p>
                             </div>
                         </div>
                     </div>
@@ -193,37 +200,47 @@ const MainComponent = () => {
             <Collapse in={projectOpen} timeout={1000}>
                 <Paper className="container my-3 gradient" elevation={1}>
                     <div className="row">
-                        {projects.map((project, index) => {
-                            return (
-                            <div className="col-lg-6">
-                                <Card key={index} className="mt-4 p-3">
-                                    <div className="row">
-                                        <div className="col-sm-4">
-                                            <img src={project.img} alt="A book search application called yourshelf" height="400" />
-                                        </div>
-                                        <div className="col-sm-8 text-left">
+                        <div className="col">
+                            {projects.map((project, index) => {
+                                return (
+                                <div>
+                                    <Card key={index} className="mt-4 p-3">
+                                        <div className="row mx-auto justify-content-center border-bottom mb-3 w-50">
                                             <h4 className="font-weight-bold">{project.title}</h4>
-                                            <p>{project.description}</p>
-                                            <h5>Technology Used</h5>
-                                            <ul>
-                                                {project.tech.map((tech, index) => {
-                                                    return (
-                                                        <li key={index}>{tech}</li>
-                                                    )
-                                                })
-                                            }
-                                            </ul>
-                                            <div className="btn-group">
-                                                <a className="btn text-light" href="/">demo</a>
-                                                <a className="btn text-light" href={project.repo}>repo</a>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <img onClick={() => {
+                                                    setSelectedImage(`${project.img}`)
+                                                    setImageOpen(!imageOpen)
+                                                }} src={project.img} alt={project.alt} className="mb-4" height="400" width="300"style={{objectFit: "cover"}}/>
+                                            </div>
+                                            <div className="col-md-6 text-left">
+                                                <p>{project.description}</p>
+                                                <h5>Technology Used</h5>
+                                                <ul>
+                                                    {project.tech.map((tech, index) => {
+                                                        return (
+                                                            <li key={index}>{tech}</li>
+                                                        )
+                                                    })
+                                                }
+                                                </ul>
+                                                <div className="btn-group">
+                                                    <a className="btn text-light" href="/">demo</a>
+                                                    <a className="btn text-light" href={project.repo}>repo</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Card>
-                            </div>
-                            )
-                        })}
+                                    </Card>
+                                </div>
+                                )
+                            })}
+                        </div>
                     </div>
+                    <Dialog fullscreen open={imageOpen} onClose={() => setImageOpen(!imageOpen)}>
+                            <img src={selectedImage} alt="" className="img-fluid" width="700"/>
+                    </Dialog>
                     <Button 
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up" 
