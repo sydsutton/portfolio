@@ -10,12 +10,11 @@ const projects = [
         alt: "A book search application called yourshelf",
         description: "A book application where the user can search for any book, either by title or subject. After loggin in to their account, the user can then save any amount of books in their digital bookshelf.",
         tech: [
-            "HTML/ CSS",
             "Javascript",
             "React JS",
             "React Native",
             "API's",
-            "Redux",
+            "React Redux",
             "React Native Elements",
             "Adobe Photoshop"
         ],
@@ -30,6 +29,7 @@ const projects = [
             "Javascript",
             "React JS",
             "Bootstrap",
+            "Reactstrap",
             "JSON",
             "React Router"
         ],
@@ -48,9 +48,9 @@ const projects = [
     },
     {
         title: "Portfolio Website",
-        description: "This very website!",
+        description: "This very website! I made it a point to use functional components and React Hooks for controlling state instead of class components. I also used the Material UI library instead of Reactstrap.",
         tech: [
-            "CSS",
+            "HTML/ CSS",
             "React JS",
             "Bootstrap",
             "React Hooks",

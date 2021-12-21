@@ -1,5 +1,10 @@
 import React, {useState} from "react"
 
+import fishbowl from "../songs/Fishbowl.mp3"
+import western from "../songs/Western.mp3"
+import heroes from "../songs/Heroes.mp3"
+import trippy from "../songs/Trippy.mp3"
+
 import me from "../images/me.png"
 import album from "../images/gallery/Album.jpg"
 import marble from "../images/gallery/Marble.jpg"
@@ -27,9 +32,6 @@ import {
     Paper,
     Button,
     Dialog,
-    FormGroup,
-    Input,
-    FormLabel,
     ImageList,
     ImageListItem,
  } from '@mui/material'
@@ -42,7 +44,8 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article
+    Article,
+    PlayCircleFilled
  } from '@mui/icons-material';
 import projects from "../projects"
 
@@ -50,9 +53,11 @@ const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
     const [projectOpen, setProjectOpen] = useState(false)
     const [photoOpen, setPhotoOpen] = useState(false)
-    const [dialogOpen, setDialogOpen] = useState(false)
     const [imageOpen, setImageOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState("")
+    const [editedImageOpen, setEditedImageOpen] = useState("")
+    const [selectedEditedImage, setSelectedEditedImage] = useState("")
+    const [musicOpen, setMusicOpen] = useState(false)
 
     return (
         <div className="text-center">
@@ -73,6 +78,7 @@ const MainComponent = () => {
                             <Button variant="contained" endIcon={<Article />} className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}>Resumé</Button>
                             <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><LinkedIn /></Button>
                             <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://github.com/sydsutton")}><GitHub /></Button>
+                            <Button variant="contained" className="btn ml-2" onClick={() => window.open('mailto:andrewsydsutton@gmail.com')}><AlternateEmail /></Button>
                         </div>
                         <div className="ml-auto text-dark w-50 mt-4">
                             <h5>“We have to continually be jumping off cliffs and developing our wings on the way down.”</h5><p>― Kurt Vonnegut</p>
@@ -144,37 +150,46 @@ const MainComponent = () => {
             <Collapse in={aboutOpen} timeout={1000}>
                 <Paper className="container my-3 text-dark gradient" elevation={1}>
                     <div className="row justify-content-between">
-                        <Card className="col-md-5 m-3">
+                        <Card className="col-lg-5 m-3">
                             <h4 className="mt-3 border-bottom">About Me</h4>
-                            <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. 
+                            <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
+                                my first line of code in Early 2021 and never looked back.
                                 Whether it's painting, photography, photo editing, or music, I have always 
-                                loved to create things from scratch; naturally coding fit me well.<br/> Like a lot 
+                                loved to create things from scratch; naturally coding fits me well.<br/> Like a lot 
                                 of other people in 2021, I was looking for a change in careers. After teaching 
                                 myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
-                                through NuCamp, and haven't looked back.</p>
-                                <h4 className="border-bottom">Three facts about me:</h4>
-                                <ul className="text-left">
-                                    <li>I've traveled the world as an Indoor Skydiving trainer</li>
-                                    <li>I play guitar in a band</li>
-                                    <li>I just got a dog...<br/> I also just found out that I'm allergic to dogs</li>
-                                </ul>
+                                through NuCamp.</p>
+                            <h4 className="border-bottom mt-5">Three random facts:</h4>
+                            <ul className="text-left">
+                                <li>I've traveled the world as an Indoor Skydiving Trainer/ Instructor</li>
+                                <li>I play guitar in a band</li>
+                                <li>I just got a dog... that I am very allergic to...</li>
+                            </ul>
                         </Card>
-                        <Card className="col-md-5 m-3">
+                        <Card className="col-lg-5 m-3">
                             <h4 className="mt-3 border-bottom">Education</h4>
                             <ul className="text-left">
                                 <li><h5>NuCamp Front End Web Development</h5></li>
                                 <p>Online Web Development Bootcamp<br/>
-                                August 2021 - December 2021</p>
+                                August 2021- December 2021<br/>
+                                <ul>
+                                    <li>Was in the top 10% of students to graduate with honors</li>
+                                    <li>Had final project showcased to all graduating students during graduation</li>
+                                </ul>
+                                </p>
 
                                 <li><h5>Bachelor of Arts in Psychology/ Minor in Communications</h5></li>
                                 <p>Northern Illinois University 2014<br/>
-                                 Graduated cum laude</p>
+                                    <ul>
+                                        <li> Graduated cum laude</li>
+                                    </ul>
+                                </p>
                             </ul>
                             <h4 className="mt-5 border-bottom">Work History</h4>
                             <ul className="text-left">
                                 <li><h5>iFLY Indoor Skydiving</h5></li>
-                                <p>Lead Instructor/ Shift Supervisor<br/>
-                                2014-2021</p>
+                                <p>Lead Instructor/ Manager<br/>
+                                2014- 2021</p>
                             </ul>
                         </Card>
                     </div>
@@ -239,7 +254,7 @@ const MainComponent = () => {
                         </div>
                     </div>
                     <Dialog fullscreen open={imageOpen} onClose={() => setImageOpen(!imageOpen)}>
-                            <img src={selectedImage} alt="" className="img-fluid" width="700"/>
+                            <img src={selectedImage} alt="" className="img-fluid" />
                     </Dialog>
                     <Button 
                         endIcon={<ArrowUpward />}
@@ -269,6 +284,10 @@ const MainComponent = () => {
                                         src={album}
                                         alt="album cover"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(album)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                                 <ImageListItem>
@@ -276,6 +295,10 @@ const MainComponent = () => {
                                         src={marble}
                                         alt="marble in hand"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(marble)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                                 <ImageListItem>
@@ -283,6 +306,10 @@ const MainComponent = () => {
                                         src={ellie}
                                         alt="girl listening to music"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(ellie)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                                 <ImageListItem>
@@ -290,6 +317,10 @@ const MainComponent = () => {
                                         src={city}
                                         alt="man with eye sewn shut"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(city)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                                 <ImageListItem>
@@ -297,6 +328,10 @@ const MainComponent = () => {
                                         src={swings}
                                         alt="swings tied together"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(swings)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                                 <ImageListItem>
@@ -304,6 +339,10 @@ const MainComponent = () => {
                                         src={cover}
                                         alt="album cover"
                                         loading="lazy"
+                                        onClick={() => {
+                                            setSelectedEditedImage(cover)
+                                            setEditedImageOpen(!editedImageOpen)
+                                        }}
                                     />
                                 </ImageListItem>
                             </ImageList>
@@ -319,20 +358,44 @@ const MainComponent = () => {
                     </Button>
                 </Paper>
             </Collapse>
-            <Button 
-                variant="contained" 
-                className="btn btn-wide mb-5" 
-                onClick={() => setDialogOpen(!dialogOpen)}
-                endIcon={<AlternateEmail />}
-            >
-                Contact Me
-            </Button>
-            <Dialog open={dialogOpen} onClose={() => setDialogOpen(!dialogOpen)}>
-                <FormGroup>
-                    <FormLabel>Name</FormLabel>
-                    <Input type="text" name="Your name"/>
-                </FormGroup>
+            <Dialog open={editedImageOpen} onClose={() => setEditedImageOpen(!editedImageOpen)}>
+                <img src={selectedEditedImage} alt="" />
             </Dialog>
+            <Button 
+                variant="contained"
+                className="btn btn-wide mb-2" 
+                onClick={() => setMusicOpen(!musicOpen)}
+                endIcon={<PlayCircleFilled />}
+            >
+                Music
+            </Button>
+            <Collapse in={musicOpen} timeout={1000}>
+                <Paper className="container gradient p-3 my-3 mb-5" elevation={1}>
+                    <h4 className="border-bottom w-50 mx-auto">Soul You Know</h4>
+                    <div className="row">
+                        <div className="col d-flex flex-column align-items-center">
+                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Fishbowl</Button>
+                            <audio className="mb-3" src={fishbowl} controls/>
+                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Western</Button>
+                            <audio className="mb-3" src={western} controls/>
+                        </div>
+                        <div className="col d-flex flex-column align-items-center">
+                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Heroes</Button>
+                            <audio className="mb-3" src={heroes} controls/>
+                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Watch Your Back</Button>
+                            <audio className="mb-3" src={trippy} controls/>
+                        </div>
+                    </div>
+                    <Button 
+                        endIcon={<ArrowUpward />}
+                        className="my-3 btn-up" 
+                        onClick={() => setMusicOpen(!musicOpen)}
+                        sx={{color: "rgba(0,0,0,.9)"}}
+                    >
+                        Back up
+                    </Button>
+                </Paper>
+            </Collapse>                           
         </div>
     )
 }

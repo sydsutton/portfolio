@@ -104,23 +104,8 @@ h1, h2, h3, h4 {
   border: "none"
 }
 
-
-.navbar {
-  width: 7rem;
-  position: fixed;
-  height: 100vh;
+audio {
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.1);
 }
-
-.App {
-  text-align: center;
-}
-
-.mb-n5 {
-  z-index: 1;
-}
-
-.navbar {
-  z-index: -1;
-}
-
 
