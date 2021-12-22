@@ -15,7 +15,7 @@ import cover from "../images/gallery/FrontCover.jpg"
 import swings from "../images/gallery/swings.jpg"
 import city from "../images/gallery/City.jpg"
 
-import react from "../images/react.png"
+import reactlogo from "../images/reactlogo.png"
 import native from "../images/native.png"
 import css from "../images/css.png"
 import html from "../images/html.png"
@@ -127,7 +127,7 @@ const MainComponent = () => {
                                 <p className="small">Javascript</p>
                             </div>
                             <div>
-                                <img className="text-right mx-2 mb-2" src={react} alt="react js" height="50"/>
+                                <img className="text-right mx-2 mb-2" src={reactlogo} alt="react js" height="50"/>
                                 <p className="small">React JS</p>
                             </div>
                             <div>
