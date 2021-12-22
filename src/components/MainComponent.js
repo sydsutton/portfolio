@@ -5,6 +5,8 @@ import western from "../songs/Western.mp3"
 import heroes from "../songs/Heroes.mp3"
 import trippy from "../songs/Trippy.mp3"
 
+import resume from "../AndrewSuttonResume.pdf"
+
 import me from "../images/me.png"
 import album from "../images/gallery/Album.jpg"
 import marble from "../images/gallery/Marble.jpg"
@@ -55,8 +57,6 @@ const MainComponent = () => {
     const [photoOpen, setPhotoOpen] = useState(false)
     const [imageOpen, setImageOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState("")
-    const [editedImageOpen, setEditedImageOpen] = useState("")
-    const [selectedEditedImage, setSelectedEditedImage] = useState("")
     const [musicOpen, setMusicOpen] = useState(false)
 
     return (
@@ -74,11 +74,38 @@ const MainComponent = () => {
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
                         <h5 className="text-dark">Front End Web Developer</h5>
                         <h6>Oswego, IL</h6>
-                        <div className="mt-3">
-                            <Button variant="contained" endIcon={<Article />} className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}>Resumé</Button>
-                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}><LinkedIn /></Button>
-                            <Button variant="contained" className="btn mx-2" onClick={() => window.open("https://github.com/sydsutton")}><GitHub /></Button>
-                            <Button variant="contained" className="btn ml-2" onClick={() => window.open('mailto:andrewsydsutton@gmail.com')}><AlternateEmail /></Button>
+                        <div className="row">
+                            <div className="col-sm-12 col-md-6 justify-content-right text-right ml-auto mt-3">
+                                <a 
+                                    id="resume"
+                                    className="mx-2 py-2 px-3" 
+                                    download 
+                                    href={resume}
+                                >
+                                    Resumé <Article /> 
+                                </a>
+                                <Button 
+                                    variant="contained" 
+                                    className="btn m-2" 
+                                    onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}
+                                >
+                                    <LinkedIn/>
+                                </Button>
+                                <Button 
+                                    variant="contained" 
+                                    className="btn m-2" 
+                                    onClick={() => window.open("https://github.com/sydsutton")}
+                                >
+                                    <GitHub />
+                                </Button>
+                                <Button 
+                                    variant="contained"
+                                    className="btn m-2" 
+                                    onClick={() => window.open('mailto:andrewsydsutton@gmail.com')}
+                                >
+                                    <AlternateEmail />
+                                </Button>
+                            </div>
                         </div>
                         <div className="ml-auto text-dark w-50 mt-4">
                             <h5>“We have to continually be jumping off cliffs and developing our wings on the way down.”</h5><p>― Kurt Vonnegut</p>
@@ -151,15 +178,15 @@ const MainComponent = () => {
                 <Paper className="container my-3 text-dark gradient" elevation={1}>
                     <div className="row justify-content-between">
                         <Card className="col-lg-5 m-3">
-                            <h4 className="mt-3 border-bottom">About Me</h4>
+                            <h4 className="mt-3 border-bottom mb-3">About Me</h4>
                             <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
                                 my first line of code in Early 2021 and never looked back.
                                 Whether it's painting, photography, photo editing, or music, I have always 
-                                loved to create things from scratch; naturally coding fits me well.<br/> Like a lot 
+                                loved to create things from scratch; naturally web development/ design fits me well.<br/> Like a lot 
                                 of other people in 2021, I was looking for a change in careers. After teaching 
                                 myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
                                 through NuCamp.</p>
-                            <h4 className="border-bottom mt-5">Three random facts:</h4>
+                            <h4 className="border-bottom mt-5 mb-3">Three random facts:</h4>
                             <ul className="text-left">
                                 <li>I've traveled the world as an Indoor Skydiving Trainer/ Instructor</li>
                                 <li>I play guitar in a band</li>
@@ -167,7 +194,7 @@ const MainComponent = () => {
                             </ul>
                         </Card>
                         <Card className="col-lg-5 m-3">
-                            <h4 className="mt-3 border-bottom">Education</h4>
+                            <h4 className="mt-3 border-bottom mb-3">Education</h4>
                             <ul className="text-left">
                                 <li><h5>NuCamp Front End Web Development</h5></li>
                                 <p>Online Web Development Bootcamp<br/>
@@ -185,7 +212,7 @@ const MainComponent = () => {
                                     </ul>
                                 </p>
                             </ul>
-                            <h4 className="mt-5 border-bottom">Work History</h4>
+                            <h4 className="mt-5 border-bottom mb-3">Work History</h4>
                             <ul className="text-left">
                                 <li><h5>iFLY Indoor Skydiving</h5></li>
                                 <p>Lead Instructor/ Manager<br/>
@@ -195,11 +222,11 @@ const MainComponent = () => {
                     </div>
                     <Button 
                         endIcon={<ArrowUpward />}
-                        className="my-3 btn-up" 
+                        className="my-3 btn-up text-dark" 
                         onClick={() => setAboutOpen(!aboutOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
-                        Back up
+                        <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
             </Collapse>
@@ -242,8 +269,15 @@ const MainComponent = () => {
                                                 }
                                                 </ul>
                                                 <div className="btn-group">
-                                                    <a className="btn text-light" href="/">demo</a>
-                                                    <a className="btn text-light" href={project.repo}>repo</a>
+                                                    {project.demo ? 
+                                                        <Button className="btn text-light mr-2" onClick={() => window.open(`${project.demo}`)}>demo</Button> 
+                                                        : 
+                                                    project.live ? 
+                                                        <Button className="btn text-light mr-2" onClick={() => window.open(`${project.live}`)}>live</Button>
+                                                    : 
+                                                    null
+                                                    }
+                                                    <Button onClick={() => window.open(`${project.repo}`)} className="btn text-light">repo</Button>
                                                 </div>
                                             </div>
                                         </div>
@@ -253,19 +287,22 @@ const MainComponent = () => {
                             })}
                         </div>
                     </div>
-                    <Dialog fullscreen open={imageOpen} onClose={() => setImageOpen(!imageOpen)}>
-                            <img src={selectedImage} alt="" className="img-fluid" />
-                    </Dialog>
+
                     <Button 
                         endIcon={<ArrowUpward />}
-                        className="my-3 btn-up" 
+                        className="my-3 btn-up text-dark" 
                         onClick={() => setProjectOpen(!projectOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
-                        Back up
+                        <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
             </Collapse>
+
+            <Dialog open={imageOpen} onClose={() => setImageOpen(!imageOpen)} >
+                <img src={selectedImage} alt="" style={{overflow: "hidden"}} />
+            </Dialog>
+
             <Button 
                 variant="contained" 
                 onClick={() => setPhotoOpen(!photoOpen)} 
@@ -274,19 +311,20 @@ const MainComponent = () => {
             >
                 Photo Editing
             </Button>
+
             <Collapse in={photoOpen} timeout={1000}>
                 <Paper className="container gradient p-3 my-3" elevation={1}>
                     <div className="row">
                         <div className="col">
-                            <ImageList sx={{ width: "auto", height: "auto"}} cols={3} rowHeight="auto">
+                            <ImageList cols={3}>
                                 <ImageListItem>
                                     <img
                                         src={album}
                                         alt="album cover"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(album)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(album)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -296,8 +334,8 @@ const MainComponent = () => {
                                         alt="marble in hand"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(marble)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(marble)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -307,8 +345,8 @@ const MainComponent = () => {
                                         alt="girl listening to music"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(ellie)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(ellie)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -318,8 +356,8 @@ const MainComponent = () => {
                                         alt="man with eye sewn shut"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(city)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(city)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -329,8 +367,8 @@ const MainComponent = () => {
                                         alt="swings tied together"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(swings)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(swings)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -340,8 +378,8 @@ const MainComponent = () => {
                                         alt="album cover"
                                         loading="lazy"
                                         onClick={() => {
-                                            setSelectedEditedImage(cover)
-                                            setEditedImageOpen(!editedImageOpen)
+                                            setSelectedImage(cover)
+                                            setImageOpen(!imageOpen)
                                         }}
                                     />
                                 </ImageListItem>
@@ -350,49 +388,84 @@ const MainComponent = () => {
                     </div>
                     <Button 
                         endIcon={<ArrowUpward />}
-                        className="my-3 btn-up" 
+                        className="my-3 btn-up text-dark" 
                         onClick={() => setPhotoOpen(!photoOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
-                        Back up
+                        <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
             </Collapse>
-            <Dialog open={editedImageOpen} onClose={() => setEditedImageOpen(!editedImageOpen)}>
-                <img src={selectedEditedImage} alt="" />
-            </Dialog>
+
             <Button 
                 variant="contained"
-                className="btn btn-wide mb-2" 
+                className="btn btn-wide mb-5" 
                 onClick={() => setMusicOpen(!musicOpen)}
                 endIcon={<PlayCircleFilled />}
             >
                 Music
             </Button>
-            <Collapse in={musicOpen} timeout={1000}>
+
+            <Collapse in={musicOpen} timeout={1000} className="mt-n5">
                 <Paper className="container gradient p-3 my-3 mb-5" elevation={1}>
                     <h4 className="border-bottom w-50 mx-auto">Soul You Know</h4>
                     <div className="row">
                         <div className="col d-flex flex-column align-items-center">
-                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Fishbowl</Button>
-                            <audio className="mb-3" src={fishbowl} controls/>
-                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Western</Button>
-                            <audio className="mb-3" src={western} controls/>
+                            <Button 
+                                className="text-dark" 
+                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
+                            >
+                                Fishbowl
+                            </Button>
+                            <audio 
+                                className="mb-3" 
+                                src={fishbowl} 
+                                controls
+                            />
+                            <Button 
+                                className="text-dark" 
+                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
+                            >
+                                Western
+                            </Button>
+                            <audio 
+                                className="mb-3" 
+                                src={western} 
+                                controls
+                            />
                         </div>
                         <div className="col d-flex flex-column align-items-center">
-                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Heroes</Button>
-                            <audio className="mb-3" src={heroes} controls/>
-                            <Button onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}>Watch Your Back</Button>
-                            <audio className="mb-3" src={trippy} controls/>
+                            <Button 
+                                className="text-dark" 
+                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
+                            >
+                                Heroes
+                            </Button>
+                            <audio 
+                                className="mb-3" 
+                                src={heroes} 
+                                controls
+                            />
+                            <Button 
+                                className="text-dark" 
+                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
+                            >
+                                Watch Your Back
+                            </Button>
+                            <audio 
+                                className="mb-3" 
+                                src={trippy} 
+                                controls
+                            />
                         </div>
                     </div>
                     <Button 
                         endIcon={<ArrowUpward />}
-                        className="my-3 btn-up" 
+                        className="my-3 btn-up text-dark" 
                         onClick={() => setMusicOpen(!musicOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
-                        Back up
+                        <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
             </Collapse>                           

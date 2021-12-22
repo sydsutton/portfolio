@@ -1,7 +1,6 @@
 import yourshelf from "./images/yourshelf.jpg"
 import ciy from "./images/ciy.png"
 import locally from "./images/locally.png"
-// import ciy2 from "./images/ciy2.png"
 
 const projects = [
     {
@@ -18,7 +17,8 @@ const projects = [
             "React Native Elements",
             "Adobe Photoshop"
         ],
-        repo: "https://github.com/sydsutton/book-app-native"
+        repo: "https://github.com/sydsutton/book-app-native",
+        demo: "https://www.youtube.com/watch?v=mc-M280LSMU"
     },
     {
         title: "Cook It Yourself",
@@ -44,7 +44,8 @@ const projects = [
             "HTML/ CSS",
             "Bootstrap"
         ],
-        repo: "https://github.com/sydsutton/ReactRecipeApp"
+        repo: "https://github.com/sydsutton/LocallyProject",
+        live: ""
     },
     {
         title: "Portfolio Website",
@@ -56,7 +57,7 @@ const projects = [
             "React Hooks",
             "Material Design"
         ],
-        repo: "https://github.com/sydsutton/ReactRecipeApp"
+        repo: "https://github.com/sydsutton/portfolio"
     },
 ]
 
