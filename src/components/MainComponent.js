@@ -7,7 +7,8 @@ import trippy from "../songs/Trippy.mp3"
 
 import resume from "../AndrewSutton-Resume.pdf"
 
-import me from "../images/me.png"
+import me from "../images/me.jpg"
+
 import album from "../images/gallery/Album.jpg"
 import marble from "../images/gallery/Marble.jpg"
 import ellie from "../images/gallery/Ellie.jpg"
@@ -61,24 +62,30 @@ const MainComponent = () => {
 
     return (
         <div className="text-center">
-            <div className="container pt-5 pl-5">
+            <div className="container pt-5 ">
                 <div className="row">
-                    <div className="img-col col-md-3 mt-3">
+                    <div className="img-col col-7 col-lg-3 mt-3 mx-auto">
                         <div id="circle-1"></div>
                         <div id="circle-2"></div>
                         <div id="circle-3"></div>
                         <div id="circle-4"></div>
-                        <img src={me} alt="Me" id="img" height="300" width="300" className="rounded-circle" />
+                        <img src={me} 
+                            alt="Me" 
+                            id="img" 
+                            height="275" width="275" className="rounded-circle" 
+                        />
                     </div>
-                    <div className="col-md-9 text-right mt-3 w-100 mb-4 border-bottom">
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-md-9 mt-3 w-100 mb-4 border-bottom">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
                         <h5 className="text-dark">Front End Web Developer</h5>
                         <h6>Oswego, IL</h6>
-                        <div className="row">
-                            <div className="col-sm-12 col-md-6 justify-content-right text-right ml-auto mt-3">
+                        <div className="row mt-3">
+                            <div className="col col-md-8 mx-auto">
                                 <a 
                                     id="resume"
-                                    className="mx-2 py-2 px-3" 
+                                    className="mx-1 py-2 px-3 ml-n3" 
                                     download 
                                     href={resume}
                                 >
@@ -86,33 +93,38 @@ const MainComponent = () => {
                                 </a>
                                 <Button 
                                     variant="contained" 
-                                    className="btn m-2" 
+                                    className="btn m-1" 
+                                    sx={{borderRadius: "20px"}}
                                     onClick={() => window.open("https://www.linkedin.com/in/andrew-sutton-aa3326205/")}
                                 >
-                                    <LinkedIn/>
+                                    <LinkedIn />
                                 </Button>
                                 <Button 
                                     variant="contained" 
-                                    className="btn m-2" 
+                                    className="btn m-1" 
+                                    sx={{borderRadius: "20px"}}
                                     onClick={() => window.open("https://github.com/sydsutton")}
                                 >
                                     <GitHub />
                                 </Button>
                                 <Button 
                                     variant="contained"
-                                    className="btn m-2" 
+                                    className="btn m-1 mr-n3" 
+                                    sx={{borderRadius: "20px"}}
                                     onClick={() => window.open('mailto:andrewsydsutton@gmail.com')}
                                 >
                                     <AlternateEmail />
                                 </Button>
                             </div>
                         </div>
-                        <div className="ml-auto text-dark w-50 mt-4">
+                        <div className="text-dark mt-4">
                             <h5>“We have to continually be jumping off cliffs and developing our wings on the way down.”</h5><p>― Kurt Vonnegut</p>
                         </div>
                     </div>
+                </div>
+                <div className="row">
                     <div className="col">
-                        <h5 className="mb-4">So far, I know...</h5>
+                        <h5 className="mb-4">I use...</h5>
                         <div className="row justify-content-between mx-auto">
                             <div>
                                 <img className="text-right mx-2 mb-2" src={html} alt="html 5" height="50"/>
@@ -182,7 +194,7 @@ const MainComponent = () => {
                             <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
                                 my first line of code in Early 2021 and never looked back.
                                 Whether it's painting, photography, photo editing, or music, I have always 
-                                loved to create things from scratch; naturally web development/ design fits me well.<br/> Like a lot 
+                                loved to create things from scratch; naturally web development and design fits me well.<br/> Like a lot 
                                 of other people in 2021, I was looking for a change in careers. After teaching 
                                 myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
                                 through NuCamp.</p>
@@ -255,7 +267,14 @@ const MainComponent = () => {
                                                 <img onClick={() => {
                                                     setSelectedImage(`${project.img}`)
                                                     setImageOpen(!imageOpen)
-                                                }} src={project.img} alt={project.alt} className="mb-4" height="400" width="300"style={{objectFit: "cover"}}/>
+                                                    }} 
+                                                    src={project.img} 
+                                                    alt={project.alt} 
+                                                    className="mb-4" 
+                                                    height="400" 
+                                                    width="300"
+                                                    style={{objectFit: "cover"}}
+                                                />
                                             </div>
                                             <div className="col-md-6 text-left">
                                                 <p>{project.description}</p>
@@ -270,14 +289,32 @@ const MainComponent = () => {
                                                 </ul>
                                                 <div className="btn-group">
                                                     {project.demo ? 
-                                                        <Button className="btn text-light mr-2" onClick={() => window.open(`${project.demo}`)}>demo</Button> 
+                                                        <Button 
+                                                            variant="contained" 
+                                                            className="btn mr-2" 
+                                                            onClick={() => window.open(`${project.demo}`)}
+                                                        >
+                                                            demo
+                                                        </Button> 
                                                         : 
                                                     project.live ? 
-                                                        <Button className="btn text-light mr-2" onClick={() => window.open(`${project.live}`)}>live</Button>
+                                                        <Button 
+                                                            variant="contained" 
+                                                            className="btn mr-2" 
+                                                            onClick={() => window.open(`${project.live}`)}
+                                                        >
+                                                            live
+                                                        </Button>
                                                     : 
                                                     null
                                                     }
-                                                    <Button onClick={() => window.open(`${project.repo}`)} className="btn text-light">repo</Button>
+                                                    <Button 
+                                                        onClick={() => window.open(`${project.repo}`)} 
+                                                        variant="contained" 
+                                                        className="btn"
+                                                    >
+                                                        repo
+                                                    </Button>
                                                 </div>
                                             </div>
                                         </div>
@@ -321,7 +358,6 @@ const MainComponent = () => {
                                     <img
                                         src={album}
                                         alt="album cover"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(album)
                                             setImageOpen(!imageOpen)
@@ -332,7 +368,6 @@ const MainComponent = () => {
                                     <img
                                         src={marble}
                                         alt="marble in hand"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(marble)
                                             setImageOpen(!imageOpen)
@@ -343,7 +378,6 @@ const MainComponent = () => {
                                     <img
                                         src={ellie}
                                         alt="girl listening to music"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(ellie)
                                             setImageOpen(!imageOpen)
@@ -354,7 +388,6 @@ const MainComponent = () => {
                                     <img
                                         src={city}
                                         alt="man with eye sewn shut"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(city)
                                             setImageOpen(!imageOpen)
@@ -365,7 +398,6 @@ const MainComponent = () => {
                                     <img
                                         src={swings}
                                         alt="swings tied together"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(swings)
                                             setImageOpen(!imageOpen)
@@ -376,7 +408,6 @@ const MainComponent = () => {
                                     <img
                                         src={cover}
                                         alt="album cover"
-                                        loading="lazy"
                                         onClick={() => {
                                             setSelectedImage(cover)
                                             setImageOpen(!imageOpen)
