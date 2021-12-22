@@ -15,7 +15,7 @@ import cover from "../images/gallery/FrontCover.jpg"
 import swings from "../images/gallery/swings.jpg"
 import city from "../images/gallery/City.jpg"
 
-import react from "../images/react.png"
+// import react from "../images/react.png"
 import native from "../images/native.png"
 import css from "../images/css.png"
 import html from "../images/html.png"
@@ -126,10 +126,10 @@ const MainComponent = () => {
                                 <img className="text-right mx-2 mb-2" src={javascript} alt="javascript" height="50"/>
                                 <p className="small">Javascript</p>
                             </div>
-                            <div>
+                            {/* <div>
                                 <img className="text-right mx-2 mb-2" src={react} alt="react js" height="50"/>
                                 <p className="small">React JS</p>
-                            </div>
+                            </div> */}
                             <div>
                                 <img className="text-right mx-2 mb-2" src={native} alt="react native" height="50"/>
                                 <p className="small">React Native</p>
