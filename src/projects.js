@@ -48,7 +48,7 @@ const projects = [
             "Bootstrap"
         ],
         repo: "https://github.com/sydsutton/LocallyProject",
-        live: ""
+        live: "https://findlocally.netlify.app/"
     },
     {
         title: "Portfolio Website",
@@ -62,7 +62,7 @@ const projects = [
             "React Hooks",
             "Material Design"
         ],
-        repo: "https://github.com/sydsutton/portfolio"
+        repo: "https://github.com/sydsutton/portfolio",
     },
 ]
 

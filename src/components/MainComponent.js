@@ -55,16 +55,16 @@ import projects from "../projects"
 const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
     const [projectOpen, setProjectOpen] = useState(false)
-    const [photoOpen, setPhotoOpen] = useState(false)
+    const [editedOpen, setEditedOpen] = useState(false)
     const [imageOpen, setImageOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState("")
-    const [musicOpen, setMusicOpen] = useState(false)
+    // const [musicOpen, setMusicOpen] = useState(false)
 
     return (
         <div className="text-center">
             <div className="container pt-5 ">
                 <div className="row">
-                    <div className="img-col col-7 col-lg-3 mt-3 mx-auto">
+                    <div className="img-col col-10 col-lg-3 mx-auto">
                         <div id="circle-1"></div>
                         <div id="circle-2"></div>
                         <div id="circle-3"></div>
@@ -77,7 +77,7 @@ const MainComponent = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-md-9 mt-3 w-100 mb-4 border-bottom">
+                    <div className="col-md-9 w-100 mb-4 border-bottom">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
                         <h5 className="text-dark">Front End Web Developer</h5>
                         <h6>Oswego, IL</h6>
@@ -259,8 +259,8 @@ const MainComponent = () => {
                                 return (
                                 <div>
                                     <Card key={index} className="mt-4 p-3">
-                                        <div className="row mx-auto justify-content-center border-bottom mb-3 w-50">
-                                            <h4 className="font-weight-bold">{project.title}</h4>
+                                        <div className="row mx-auto justify-content-center border-bottom mb-3 w-75">
+                                            <h3 className="font-weight-bold">{project.title}</h3>
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
@@ -276,13 +276,13 @@ const MainComponent = () => {
                                                     style={{objectFit: "cover"}}
                                                 />
                                             </div>
-                                            <div className="col-md-6 text-left">
+                                            <div className="col-md-6 text-center text-md-left">
                                                 <p>{project.description}</p>
-                                                <h5>Technology Used</h5>
+                                                <h4 className="border-bottom mb-3 pb-2">Technologies Used</h4>
                                                 <ul>
                                                     {project.tech.map((tech, index) => {
                                                         return (
-                                                            <li key={index}>{tech}</li>
+                                                            <li key={index} className="text-left">{tech}</li>
                                                         )
                                                     })
                                                 }
@@ -342,14 +342,14 @@ const MainComponent = () => {
 
             <Button 
                 variant="contained" 
-                onClick={() => setPhotoOpen(!photoOpen)} 
-                className="btn btn-wide mb-2"
+                onClick={() => setEditedOpen(!editedOpen)} 
+                className="btn btn-wide mb-5"
                 endIcon={<Edit />}
             >
                 Photo Editing
             </Button>
 
-            <Collapse in={photoOpen} timeout={1000}>
+            <Collapse in={editedOpen} timeout={1000} className="mt-n5">
                 <Paper className="container gradient p-3 my-3" elevation={1}>
                     <div className="row">
                         <div className="col">
@@ -420,7 +420,7 @@ const MainComponent = () => {
                     <Button 
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up text-dark" 
-                        onClick={() => setPhotoOpen(!photoOpen)}
+                        onClick={() => setEditedOpen(!editedOpen)}
                         sx={{color: "rgba(0,0,0,.9)"}}
                     >
                         <p className="text-dark my-auto">Back up</p>
@@ -428,7 +428,7 @@ const MainComponent = () => {
                 </Paper>
             </Collapse>
 
-            <Button 
+            {/* <Button 
                 variant="contained"
                 className="btn btn-wide mb-5" 
                 onClick={() => setMusicOpen(!musicOpen)}
@@ -499,7 +499,7 @@ const MainComponent = () => {
                         <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
-            </Collapse>                           
+            </Collapse>                            */}
         </div>
     )
 }
