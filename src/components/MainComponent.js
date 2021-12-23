@@ -1,5 +1,7 @@
 import React, {useState} from "react"
 
+import ListOfTech from "./ListOfTechComponent"
+
 import fishbowl from "../songs/Fishbowl.mp3"
 import western from "../songs/Western.mp3"
 import heroes from "../songs/Heroes.mp3"
@@ -16,19 +18,6 @@ import cover from "../images/gallery/FrontCover.jpg"
 import swings from "../images/gallery/swings.jpg"
 import city from "../images/gallery/City.jpg"
 
-import reactlogo from "../images/reactlogo.png"
-import native from "../images/native.png"
-import css from "../images/css.png"
-import html from "../images/html.png"
-import javascript from "../images/javascript.png"
-import bootstrap from "../images/bootstrap.png"
-import git from "../images/git.png"
-import github from "../images/github.png"
-import vscode from "../images/vscode.png"
-import api from "../images/api.png"
-import photoshop from "../images/photoshop.png"
-import redux from "../images/redux.png"
-
 import { 
     Card,
     Collapse,
@@ -37,6 +26,7 @@ import {
     Dialog,
     ImageList,
     ImageListItem,
+    Slide
  } from '@mui/material'
 
 import {
@@ -47,10 +37,11 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article,
-    PlayCircleFilled
+    Article
  } from '@mui/icons-material';
+
 import projects from "../projects"
+
 
 const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
@@ -123,59 +114,9 @@ const MainComponent = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col">
-                        <h5 className="mb-4">I use...</h5>
-                        <div className="row justify-content-between mx-auto">
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={html} alt="html 5" height="50"/>
-                                <p className="small">HTML 5</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={css} alt="css 3" height="50"/>
-                                <p className="small">CSS 3</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={javascript} alt="javascript" height="50"/>
-                                <p className="small">Javascript</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={reactlogo} alt="react js" height="50"/>
-                                <p className="small">React JS</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={native} alt="react native" height="50"/>
-                                <p className="small">React Native</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={redux} alt="react redux" height="50"/>
-                                <p className="small">React Redux</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={bootstrap} alt="bootstrap" height="50"/>
-                                <p className="small">Bootstrap</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={git} alt="git" height="50"/>
-                                <p className="small">Git</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={github} alt="github" height="50"/>
-                                <p className="small">GitHub</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={vscode} alt="vscode" height="50"/>
-                                <p className="small">VS Code</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={api} alt="api's" height="50"/>
-                                <p className="small">API's</p>
-                            </div>
-                            <div>
-                                <img className="text-right mx-2 mb-2" src={photoshop} alt="photoshop" height="50"/>
-                                <p className="small">Photoshop</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <ListOfTech />
+
                 </div>
             </div>
             <Button 
@@ -189,48 +130,50 @@ const MainComponent = () => {
             <Collapse in={aboutOpen} timeout={1000}>
                 <Paper className="container my-3 text-dark gradient" elevation={1}>
                     <div className="row justify-content-between">
-                        <Card className="col-lg-5 m-3">
-                            <h4 className="mt-3 border-bottom mb-3">About Me</h4>
-                            <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
-                                my first line of code in Early 2021 and never looked back.
-                                Whether it's painting, photography, photo editing, or music, I have always 
-                                loved to create things from scratch; naturally web development and design fits me well.<br/> Like a lot 
-                                of other people in 2021, I was looking for a change in careers. After teaching 
-                                myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
-                                through NuCamp.</p>
-                            <h4 className="border-bottom mt-5 mb-3">Three random facts:</h4>
-                            <ul className="text-left">
-                                <li>I've traveled the world as an Indoor Skydiving Trainer/ Instructor</li>
-                                <li>I play guitar in a band</li>
-                                <li>I just got a dog... that I am very allergic to...</li>
-                            </ul>
-                        </Card>
-                        <Card className="col-lg-5 m-3">
-                            <h4 className="mt-3 border-bottom mb-3">Education</h4>
-                            <ul className="text-left">
-                                <li><h5>NuCamp Front End Web Development</h5></li>
-                                <p>Online Web Development Bootcamp<br/>
-                                August 2021- December 2021<br/>
-                                <ul>
+                        <Slide in={aboutOpen} timeout={1000} direction="up">
+                            <Card className="col-lg-5 m-3">
+                                <h4 className="mt-3 border-bottom mb-3">About Me</h4>
+                                <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
+                                    my first line of code in Early 2021 and never looked back.
+                                    Whether it's painting, photography, photo editing, or music, I have always 
+                                    loved to create things from scratch; naturally web development and design fits me well.<br/> Like a lot 
+                                    of other people in 2021, I was looking for a change in careers. After teaching 
+                                    myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
+                                    through NuCamp.</p>
+                                <h4 className="border-bottom mt-5 mb-3">Three random facts:</h4>
+                                <ul className="text-left">
+                                    <li>I've traveled the world as an Indoor Skydiving Trainer/ Instructor</li>
+                                    <li>I play guitar in a band</li>
+                                    <li>I just got a dog... that I am very allergic to...</li>
+                                </ul>
+                            </Card>
+                        </Slide>
+                        <Slide in={aboutOpen} timeout={3000} direction="up">
+                            <Card className="col-lg-5 m-3 text-left">
+                                <h4 className="mt-3 border-bottom mb-3 text-center">Education</h4>
+                                <div className="text-left">
+                                    <h5 className="font-weight-bold">NuCamp Front End Web Development</h5>
+                                    <p>Online Web Development Bootcamp<br/>
+                                        August 2021- December 2021<br/>
+                                    </p>
+                                </div>
+                                <ul className="text-left">
                                     <li>Was in the top 10% of students to graduate with honors</li>
                                     <li>Had final project showcased to all graduating students during graduation</li>
                                 </ul>
-                                </p>
 
-                                <li><h5>Bachelor of Arts in Psychology/ Minor in Communications</h5></li>
-                                <p>Northern Illinois University 2014<br/>
-                                    <ul>
-                                        <li> Graduated cum laude</li>
-                                    </ul>
-                                </p>
-                            </ul>
-                            <h4 className="mt-5 border-bottom mb-3">Work History</h4>
-                            <ul className="text-left">
-                                <li><h5>iFLY Indoor Skydiving</h5></li>
+                                <h5 className="font-weight-bold">Bachelor of Arts in Psychology/ Minor in Communications</h5>
+                                <p>Northern Illinois University<br/>
+                                    2011- 2014</p>
+                                <ul>
+                                    <li> Graduated cum laude</li>
+                                </ul>
+                                <h4 className="mt-5 border-bottom mb-3 text-center">Work History</h4>
+                                <h5 className="font-weight-bold">iFLY Indoor Skydiving</h5>
                                 <p>Lead Instructor/ Manager<br/>
                                 2014- 2021</p>
-                            </ul>
-                        </Card>
+                            </Card>
+                        </Slide>
                     </div>
                     <Button 
                         endIcon={<ArrowUpward />}
@@ -252,92 +195,92 @@ const MainComponent = () => {
                 Projects
             </Button>
             <Collapse in={projectOpen} timeout={1000}>
-                <Paper className="container my-3 gradient" elevation={1}>
-                    <div className="row">
-                        <div className="col">
-                            {projects.map((project, index) => {
-                                return (
-                                <div>
-                                    <Card key={index} className="mt-4 p-3">
-                                        <div className="row mx-auto justify-content-center border-bottom mb-3 w-75">
-                                            <h3 className="font-weight-bold">{project.title}</h3>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <img onClick={() => {
-                                                    setSelectedImage(`${project.img}`)
-                                                    setImageOpen(!imageOpen)
-                                                    }} 
-                                                    src={project.img} 
-                                                    alt={project.alt} 
-                                                    className="mb-4" 
-                                                    height="400" 
-                                                    width="300"
-                                                    style={{objectFit: "cover"}}
-                                                />
+                    <Paper className="container my-3 gradient" elevation={1}>
+                        <div className="row">
+                            <div className="col">
+                                {projects.map((project, index) => {
+                                    return (
+                                    <Slide in={projectOpen} timeout={(1000 * (index * 2))} direction="up">
+                                        <Card key={index} className="mt-4 p-3">
+                                            <div className="row mx-auto justify-content-center border-bottom mb-3 w-75">
+                                                <h3 className="font-weight-bold">{project.title}</h3>
                                             </div>
-                                            <div className="col-md-6 text-center text-md-left">
-                                                <p>{project.description}</p>
-                                                <h4 className="border-bottom mb-3 pb-2">Technologies Used</h4>
-                                                <ul>
-                                                    {project.tech.map((tech, index) => {
-                                                        return (
-                                                            <li key={index} className="text-left">{tech}</li>
-                                                        )
-                                                    })
-                                                }
-                                                </ul>
-                                                <div className="btn-group">
-                                                    {project.demo ? 
-                                                        <Button 
-                                                            variant="contained" 
-                                                            className="btn mr-2" 
-                                                            onClick={() => window.open(`${project.demo}`)}
-                                                        >
-                                                            demo
-                                                        </Button> 
-                                                        : 
-                                                    project.live ? 
-                                                        <Button 
-                                                            variant="contained" 
-                                                            className="btn mr-2" 
-                                                            onClick={() => window.open(`${project.live}`)}
-                                                        >
-                                                            live
-                                                        </Button>
-                                                    : 
-                                                    null
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <img onClick={() => {
+                                                        setSelectedImage(`${project.img}`)
+                                                        setImageOpen(!imageOpen)
+                                                        }} 
+                                                        src={project.img} 
+                                                        alt={project.alt} 
+                                                        className="mb-4" 
+                                                        height="400" 
+                                                        width="300"
+                                                        style={{objectFit: "cover", imageResolution: "from-image"}}
+                                                    />
+                                                </div>
+                                                <div className="col-md-6 text-center text-md-left">
+                                                    <p>{project.description}</p>
+                                                    <h4 className="border-bottom mb-3 pb-2">Technologies Used</h4>
+                                                    <ul>
+                                                        {project.tech.map((tech, index) => {
+                                                            return (
+                                                                <li key={index} className="text-left">{tech}</li>
+                                                            )
+                                                        })
                                                     }
-                                                    <Button 
-                                                        onClick={() => window.open(`${project.repo}`)} 
-                                                        variant="contained" 
-                                                        className="btn"
-                                                    >
-                                                        repo
-                                                    </Button>
+                                                    </ul>
+                                                    <div className="btn-group">
+                                                        {project.demo ? 
+                                                            <Button 
+                                                                variant="contained" 
+                                                                className="btn mr-2" 
+                                                                onClick={() => window.open(`${project.demo}`)}
+                                                            >
+                                                                demo
+                                                            </Button> 
+                                                            : 
+                                                        project.live ? 
+                                                            <Button 
+                                                                variant="contained" 
+                                                                className="btn mr-2" 
+                                                                onClick={() => window.open(`${project.live}`)}
+                                                            >
+                                                                live
+                                                            </Button>
+                                                        : 
+                                                        null
+                                                        }
+                                                        <Button 
+                                                            onClick={() => window.open(`${project.repo}`)} 
+                                                            variant="contained" 
+                                                            className="btn"
+                                                        >
+                                                            repo
+                                                        </Button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </Card>
-                                </div>
-                                )
-                            })}
+                                        </Card>
+                                    </Slide>
+                                    )
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                    <Button 
-                        endIcon={<ArrowUpward />}
-                        className="my-3 btn-up text-dark" 
-                        onClick={() => setProjectOpen(!projectOpen)}
-                        sx={{color: "rgba(0,0,0,.9)"}}
-                    >
-                        <p className="text-dark my-auto">Back up</p>
-                    </Button>
-                </Paper>
+                        <Button 
+                            endIcon={<ArrowUpward />}
+                            className="my-3 btn-up text-dark" 
+                            onClick={() => setProjectOpen(!projectOpen)}
+                            sx={{color: "rgba(0,0,0,.9)"}}
+                        >
+                            <p className="text-dark my-auto">Back up</p>
+                        </Button>
+                    </Paper>
             </Collapse>
 
-            <Dialog open={imageOpen} onClose={() => setImageOpen(!imageOpen)} >
-                <img src={selectedImage} alt="" style={{overflow: "hidden"}} />
+            <Dialog open={imageOpen} fullWidth={true} maxWidth={"md"} sx={{overFlow: "hidden" }} onClose={() => setImageOpen(!imageOpen)} >
+                <img src={selectedImage} alt="" className="modal-img" />
             </Dialog>
 
             <Button 
@@ -349,71 +292,95 @@ const MainComponent = () => {
                 Photo Editing
             </Button>
 
-            <Collapse in={editedOpen} timeout={1000} className="mt-n5">
-                <Paper className="container gradient p-3 my-3" elevation={1}>
+            <Collapse in={editedOpen} timeout={3000} className="mt-n5">
+                <Paper className="container gradient p-3 my-3 mb-5" elevation={1}>
                     <div className="row">
                         <div className="col">
-                            <ImageList cols={3}>
-                                <ImageListItem>
-                                    <img
-                                        src={album}
-                                        alt="album cover"
-                                        onClick={() => {
-                                            setSelectedImage(album)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <img
-                                        src={marble}
-                                        alt="marble in hand"
-                                        onClick={() => {
-                                            setSelectedImage(marble)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <img
-                                        src={ellie}
-                                        alt="girl listening to music"
-                                        onClick={() => {
-                                            setSelectedImage(ellie)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <img
-                                        src={city}
-                                        alt="man with eye sewn shut"
-                                        onClick={() => {
-                                            setSelectedImage(city)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <img
-                                        src={swings}
-                                        alt="swings tied together"
-                                        onClick={() => {
-                                            setSelectedImage(swings)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
-                                <ImageListItem>
-                                    <img
-                                        src={cover}
-                                        alt="album cover"
-                                        onClick={() => {
-                                            setSelectedImage(cover)
-                                            setImageOpen(!imageOpen)
-                                        }}
-                                    />
-                                </ImageListItem>
+                            <ImageList cols={3} style={{overflow: "hidden"}}>
+                                <Slide in={editedOpen} timeout={3500} direction="up">
+                                    <ImageListItem>
+                                        <img
+                                            src={album}
+                                            className="img-res"
+                                            alt="album cover"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(album)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
+                                <Slide in={editedOpen} timeout={4000} direction="up">
+                                    <ImageListItem>
+                                        <img
+                                            src={marble}
+                                            className="img-res"
+                                            alt="marble in hand"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(marble)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
+                                <Slide in={editedOpen} timeout={4500} direction="up">
+                                    <ImageListItem>
+                                        <img
+                                            src={ellie}
+                                            className="img-res"
+                                            alt="girl listening to music"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(ellie)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
+                                <Slide in={editedOpen} timeout={5000} direction="up">
+                                    <ImageListItem>
+                                        <img
+                                            src={city}
+                                            className="img-res"
+                                            alt="man with eye sewn shut"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(city)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
+                                <Slide in={editedOpen} timeout={5500} direction="up">      
+                                    <ImageListItem>
+                                        <img
+                                            src={swings}
+                                            className="img-res"
+                                            alt="swings tied together"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(swings)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
+                                <Slide in={editedOpen} timeout={6000} direction="up">
+                                    <ImageListItem>
+                                        <img
+                                            src={cover}
+                                            className="img-res"
+                                            alt="album cover"
+                                            loading="lazy"
+                                            onClick={() => {
+                                                setSelectedImage(cover)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        />
+                                    </ImageListItem>
+                                </Slide>
                             </ImageList>
                         </div>
                     </div>
