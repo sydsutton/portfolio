@@ -2,11 +2,6 @@ import React, {useState} from "react"
 
 import ListOfTech from "./ListOfTechComponent"
 
-import fishbowl from "../songs/Fishbowl.mp3"
-import western from "../songs/Western.mp3"
-import heroes from "../songs/Heroes.mp3"
-import trippy from "../songs/Trippy.mp3"
-
 import resume from "../AndrewSutton-Resume.pdf"
 
 import me from "../images/me.jpg"
@@ -56,15 +51,25 @@ const MainComponent = () => {
             <div className="container pt-5 ">
                 <div className="row">
                     <div className="img-col col-10 col-lg-3 mx-auto">
-                        <div id="circle-1"></div>
-                        <div id="circle-2"></div>
-                        <div id="circle-3"></div>
-                        <div id="circle-4"></div>
-                        <img src={me} 
-                            alt="Me" 
-                            id="img" 
-                            height="275" width="275" className="rounded-circle" 
-                        />
+                        <Slide in={true} timeout={2000} direction="right">
+                            <div id="circle-1"></div>
+                        </Slide>
+                        <Slide in={true} timeout={3000} direction="right">
+                            <div id="circle-2"></div>
+                        </Slide>
+                        <Slide in={true} timeout={4000} direction="right">
+                            <div id="circle-3"></div>
+                        </Slide>
+                        <Slide in={true} timeout={5000} direction="right">
+                            <div id="circle-4"></div>
+                        </Slide>
+                        <Slide in={true} timeout={1000} direction="right">
+                            <img src={me} 
+                                alt="Me" 
+                                id="img" 
+                                height="275" width="275" className="rounded-circle" 
+                            />
+                        </Slide>
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -127,19 +132,18 @@ const MainComponent = () => {
             >
                     Background
             </Button>
-            <Collapse in={aboutOpen} timeout={1000}>
+            <Collapse in={aboutOpen} timeout={{enter: 2000, exit: 1000}}>
                 <Paper className="container my-3 text-dark gradient" elevation={1}>
                     <div className="row justify-content-between">
-                        <Slide in={aboutOpen} timeout={1000} direction="up">
+                        <Slide in={aboutOpen} timeout={{enter: 3000, exit: 8000}} direction="up">
                             <Card className="col-lg-5 m-3">
                                 <h4 className="mt-3 border-bottom mb-3">About Me</h4>
-                                <p className="text-left">An Indoor Skydiving Instructor turned Front End Developer. I wrote 
-                                    my first line of code in Early 2021 and never looked back.
-                                    Whether it's painting, photography, photo editing, or music, I have always 
-                                    loved to create things from scratch; naturally web development and design fits me well.<br/> Like a lot 
-                                    of other people in 2021, I was looking for a change in careers. After teaching 
-                                    myself how to code for a couple of months, I decided to enroll in a coding bootcamp 
-                                    through NuCamp.</p>
+                                <p className="text-left">I enjoy creating simple, functional, and effective designs.<br/><br/>An Indoor Skydiving Instructor turned Front End Developer. I wrote 
+                                    my first line of code in Early 2021 and never looked back. Whether it's painting, 
+                                    photography, photo editing, or music, I have always loved to create things from scratch; 
+                                    naturally web development and design fits me well.<br/> Like a lot of other people in 2021, 
+                                    I was looking for a change in careers. After teaching myself how to code for a couple of 
+                                    months, I decided to enroll in a coding bootcamp through NuCamp.</p>
                                 <h4 className="border-bottom mt-5 mb-3">Three random facts:</h4>
                                 <ul className="text-left">
                                     <li>I've traveled the world as an Indoor Skydiving Trainer/ Instructor</li>
@@ -148,7 +152,7 @@ const MainComponent = () => {
                                 </ul>
                             </Card>
                         </Slide>
-                        <Slide in={aboutOpen} timeout={3000} direction="up">
+                        <Slide in={aboutOpen} timeout={{enter: 4000, exit: 8000}} direction="up">
                             <Card className="col-lg-5 m-3 text-left">
                                 <h4 className="mt-3 border-bottom mb-3 text-center">Education</h4>
                                 <div className="text-left">
@@ -179,7 +183,6 @@ const MainComponent = () => {
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up text-dark" 
                         onClick={() => setAboutOpen(!aboutOpen)}
-                        sx={{color: "rgba(0,0,0,.9)"}}
                     >
                         <p className="text-dark my-auto">Back up</p>
                     </Button>
@@ -194,26 +197,24 @@ const MainComponent = () => {
             >
                 Projects
             </Button>
-            <Collapse in={projectOpen} timeout={1000}>
+            <Collapse in={projectOpen} timeout={{enter: 3000, exit: 1000}}>
                     <Paper className="container my-3 gradient" elevation={1}>
                         <div className="row">
                             <div className="col">
                                 {projects.map((project, index) => {
                                     return (
-                                    <Slide in={projectOpen} timeout={(1000 * (index * 2))} direction="up">
+                                    <Slide in={projectOpen} timeout={{enter: (1000 * (index * 2)), exit: 9000}} direction="up">
                                         <Card key={index} className="mt-4 p-3">
                                             <div className="row mx-auto justify-content-center border-bottom mb-3 w-75">
                                                 <h3 className="font-weight-bold">{project.title}</h3>
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <img onClick={() => {
-                                                        setSelectedImage(`${project.img}`)
-                                                        setImageOpen(!imageOpen)
-                                                        }} 
+                                                    <img
                                                         src={project.img} 
                                                         alt={project.alt} 
                                                         className="mb-4" 
+                                                        id="no-cursor"
                                                         height="400" 
                                                         width="300"
                                                         style={{objectFit: "cover", imageResolution: "from-image"}}
@@ -256,7 +257,7 @@ const MainComponent = () => {
                                                             variant="contained" 
                                                             className="btn"
                                                         >
-                                                            repo
+                                                            code
                                                         </Button>
                                                     </div>
                                                 </div>
@@ -272,14 +273,13 @@ const MainComponent = () => {
                             endIcon={<ArrowUpward />}
                             className="my-3 btn-up text-dark" 
                             onClick={() => setProjectOpen(!projectOpen)}
-                            sx={{color: "rgba(0,0,0,.9)"}}
                         >
                             <p className="text-dark my-auto">Back up</p>
                         </Button>
                     </Paper>
             </Collapse>
 
-            <Dialog open={imageOpen} fullWidth={true} maxWidth={"md"} sx={{overFlow: "hidden" }} onClose={() => setImageOpen(!imageOpen)} >
+            <Dialog open={imageOpen} fullWidth={true} maxWidth={"sm"} sx={{overFlow: "hidden" }} onClose={() => setImageOpen(!imageOpen)} >
                 <img src={selectedImage} alt="" className="modal-img" />
             </Dialog>
 
@@ -292,7 +292,7 @@ const MainComponent = () => {
                 Photo Editing
             </Button>
 
-            <Collapse in={editedOpen} timeout={3000} className="mt-n5">
+            <Collapse in={editedOpen} timeout={{enter: 3000, exit: 1000}} className="mt-n5">
                 <Paper className="container gradient p-3 my-3 mb-5" elevation={1}>
                     <div className="row">
                         <div className="col">
@@ -388,85 +388,12 @@ const MainComponent = () => {
                         endIcon={<ArrowUpward />}
                         className="my-3 btn-up text-dark" 
                         onClick={() => setEditedOpen(!editedOpen)}
-                        sx={{color: "rgba(0,0,0,.9)"}}
                     >
                         <p className="text-dark my-auto">Back up</p>
                     </Button>
                 </Paper>
             </Collapse>
 
-            {/* <Button 
-                variant="contained"
-                className="btn btn-wide mb-5" 
-                onClick={() => setMusicOpen(!musicOpen)}
-                endIcon={<PlayCircleFilled />}
-            >
-                Music
-            </Button>
-
-            <Collapse in={musicOpen} timeout={1000} className="mt-n5">
-                <Paper className="container gradient p-3 my-3 mb-5" elevation={1}>
-                    <h4 className="border-bottom w-50 mx-auto">Soul You Know</h4>
-                    <div className="row">
-                        <div className="col d-flex flex-column align-items-center">
-                            <Button 
-                                className="text-dark" 
-                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
-                            >
-                                Fishbowl
-                            </Button>
-                            <audio 
-                                className="mb-3" 
-                                src={fishbowl} 
-                                controls
-                            />
-                            <Button 
-                                className="text-dark" 
-                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
-                            >
-                                Western
-                            </Button>
-                            <audio 
-                                className="mb-3" 
-                                src={western} 
-                                controls
-                            />
-                        </div>
-                        <div className="col d-flex flex-column align-items-center">
-                            <Button 
-                                className="text-dark" 
-                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
-                            >
-                                Heroes
-                            </Button>
-                            <audio 
-                                className="mb-3" 
-                                src={heroes} 
-                                controls
-                            />
-                            <Button 
-                                className="text-dark" 
-                                onClick={() => window.open("https://open.spotify.com/artist/2hxK5s6Gvisb2GOx6Pl1cx")}
-                            >
-                                Watch Your Back
-                            </Button>
-                            <audio 
-                                className="mb-3" 
-                                src={trippy} 
-                                controls
-                            />
-                        </div>
-                    </div>
-                    <Button 
-                        endIcon={<ArrowUpward />}
-                        className="my-3 btn-up text-dark" 
-                        onClick={() => setMusicOpen(!musicOpen)}
-                        sx={{color: "rgba(0,0,0,.9)"}}
-                    >
-                        <p className="text-dark my-auto">Back up</p>
-                    </Button>
-                </Paper>
-            </Collapse>                            */}
         </div>
     )
 }

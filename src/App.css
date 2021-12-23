@@ -127,13 +127,13 @@ h1, h2, h3, h4 {
   cursor: pointer;
 }
 
+.gradient #no-cursor:hover {
+  cursor: unset;
+}
+
 audio {
   border-radius: 30px;
   box-shadow: 5px 5px 5px rgba(0,0,0,.1);
-}
-
-.img-res {
-  image-resolution: 300dpi;
 }
 
 .modal-img {
