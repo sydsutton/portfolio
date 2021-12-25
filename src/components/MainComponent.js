@@ -1,11 +1,11 @@
 import React, {useState} from "react"
 
 import ListOfTech from "./ListOfTechComponent"
-
 import resume from "../AndrewSutton-Resume.pdf"
+import honors from "../HonorsCertificate.pdf"
+import frontend from "../FrontEnd.pdf"
 
 import me from "../images/me.jpg"
-
 import album from "../images/gallery/Album.jpg"
 import marble from "../images/gallery/Marble.jpg"
 import ellie from "../images/gallery/Ellie.jpg"
@@ -32,7 +32,7 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article
+    Article, School
  } from '@mui/icons-material';
 
 import projects from "../projects"
@@ -42,9 +42,9 @@ const MainComponent = () => {
     const [aboutOpen, setAboutOpen] = useState(false)
     const [projectOpen, setProjectOpen] = useState(false)
     const [editedOpen, setEditedOpen] = useState(false)
+    const [certOpen, setCertOpen] = useState(false)
     const [imageOpen, setImageOpen] = useState(false)
     const [selectedImage, setSelectedImage] = useState("")
-    // const [musicOpen, setMusicOpen] = useState(false)
 
     return (
         <div className="text-center">
@@ -79,14 +79,22 @@ const MainComponent = () => {
                         <h6>Oswego, IL</h6>
                         <div className="row mt-3">
                             <div className="col col-md-8 mx-auto">
-                                <a 
+                                {/* <a 
                                     id="resume"
                                     className="mx-1 py-2 px-3 ml-n3" 
-                                    download 
+                                    download="AndrewSutton-Resume"
                                     href={resume}
                                 >
                                     Resumé <Article /> 
-                                </a>
+                                </a> */}
+                                <Button 
+                                    id="resume"
+                                    className="mx-1 py-2 px-3 ml-n3" 
+                                    download="AndrewSutton-Resume"
+                                    onClick={() => window.open(resume)}
+                                >
+                                    Resumé <Article /> 
+                                </Button>
                                 <Button 
                                     variant="contained" 
                                     className="btn m-1" 
@@ -285,6 +293,53 @@ const MainComponent = () => {
 
             <Button 
                 variant="contained" 
+                onClick={() => setCertOpen(!certOpen)} 
+                className="btn btn-wide mb-2"
+                endIcon={<School />}
+            >
+                Certificates
+            </Button>
+
+            <Collapse in={certOpen} timeout={{enter: 3000, exit: 1000}}>
+                <Paper className="container gradient p-3 my-3 mb-2" elevation={1}>
+                    <div className="row">
+                        <div className="col text-left">
+                            <ul style={{listStyle: "none"}}>
+                                <li>
+                                    <Slide in={certOpen} timeout={3500} direction="up">
+                                        <Button
+                                            onClick={() => window.open(honors)}
+                                            className="mb-2 bg-light text-dark"
+                                        >
+                                            Honors Certificate- NuCamp
+                                        </Button>
+                                    </Slide>
+                                </li>
+                                <li>
+                                    <Slide in={certOpen} timeout={4000} direction="up">
+                                        <Button
+                                            onClick={() => window.open(frontend)}
+                                            className="bg-light text-dark" 
+                                        >
+                                            Front End Web/ Mobile Development- NuCamp
+                                        </Button>
+                                    </Slide>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <Button 
+                        endIcon={<ArrowUpward />}
+                        className="my-3 btn-up text-dark" 
+                        onClick={() => setCertOpen(!certOpen)}
+                    >
+                        <p className="text-dark my-auto">Back up</p>
+                    </Button>
+                </Paper>
+            </Collapse>
+
+            <Button 
+                variant="contained" 
                 onClick={() => setEditedOpen(!editedOpen)} 
                 className="btn btn-wide mb-5"
                 endIcon={<Edit />}
@@ -301,9 +356,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={album}
-                                            className="img-res"
                                             alt="album cover"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(album)
                                                 setImageOpen(!imageOpen)
@@ -315,9 +368,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={marble}
-                                            className="img-res"
                                             alt="marble in hand"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(marble)
                                                 setImageOpen(!imageOpen)
@@ -329,9 +380,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={ellie}
-                                            className="img-res"
                                             alt="girl listening to music"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(ellie)
                                                 setImageOpen(!imageOpen)
@@ -343,9 +392,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={city}
-                                            className="img-res"
                                             alt="man with eye sewn shut"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(city)
                                                 setImageOpen(!imageOpen)
@@ -357,9 +404,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={swings}
-                                            className="img-res"
                                             alt="swings tied together"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(swings)
                                                 setImageOpen(!imageOpen)
@@ -371,9 +416,7 @@ const MainComponent = () => {
                                     <ImageListItem>
                                         <img
                                             src={cover}
-                                            className="img-res"
                                             alt="album cover"
-                                            loading="lazy"
                                             onClick={() => {
                                                 setSelectedImage(cover)
                                                 setImageOpen(!imageOpen)
