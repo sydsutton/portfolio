@@ -1,10 +1,11 @@
 import React, {useState} from "react"
 
 import ListOfTech from "./ListOfTechComponent"
-import resume from "../AndrewSutton-Resume.pdf"
-import honors from "../HonorsCertificate.pdf"
-import frontend from "../FrontEnd.pdf"
+import resume from "../images/AndrewSutton-Resume.pdf"
 
+import honors from "../images/HonorsCertificate.png"
+import frontend from "../images/FrontEnd.png"
+import resumeImg from "../images/AndrewSuttonResume.png"
 import me from "../images/me.jpg"
 import album from "../images/gallery/Album.jpg"
 import marble from "../images/gallery/Marble.jpg"
@@ -64,7 +65,8 @@ const MainComponent = () => {
                             <div id="circle-4"></div>
                         </Slide>
                         <Slide in={true} timeout={1000} direction="right">
-                            <img src={me} 
+                            <img 
+                                src={me} 
                                 alt="Me" 
                                 id="img" 
                                 height="275" width="275" className="rounded-circle" 
@@ -73,28 +75,12 @@ const MainComponent = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-md-9 w-100 mb-4 border-bottom">
+                    <div className="col-md-9 w-100 mb-4 border-bottom ">
                         <h1 id="name-heading">Andrew <strong>Sutton</strong></h1>
                         <h5 className="text-dark">Front End Web Developer</h5>
                         <h6>Oswego, IL</h6>
                         <div className="row mt-3">
                             <div className="col col-md-8 mx-auto">
-                                {/* <a 
-                                    id="resume"
-                                    className="mx-1 py-2 px-3 ml-n3" 
-                                    download="AndrewSutton-Resume"
-                                    href={resume}
-                                >
-                                    Resumé <Article /> 
-                                </a> */}
-                                <Button 
-                                    id="resume"
-                                    className="mx-1 py-2 px-3 ml-n3" 
-                                    download="AndrewSutton-Resume"
-                                    onClick={() => window.open(resume)}
-                                >
-                                    Resumé <Article /> 
-                                </Button>
                                 <Button 
                                     variant="contained" 
                                     className="btn m-1" 
@@ -113,12 +99,39 @@ const MainComponent = () => {
                                 </Button>
                                 <Button 
                                     variant="contained"
-                                    className="btn m-1 mr-n3" 
+                                    className="btn m-1" 
                                     sx={{borderRadius: "20px"}}
                                     onClick={() => window.open('mailto:andrewsydsutton@gmail.com')}
                                 >
                                     <AlternateEmail />
                                 </Button>
+                                <div className="border-bottom my-2 w-75 mx-auto" />
+                                <div className="row">
+                                    <div className="col mx-auto text-center">
+                                        <Button 
+                                            id="resume"
+                                            className="btn mt-1 px-3" 
+                                            onClick={() => {
+                                                setSelectedImage(resumeImg)
+                                                setImageOpen(!imageOpen)
+                                            }}
+                                        >
+                                            View Resumé <Article />
+                                        </Button>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col">
+                                        <Button 
+                                            id="resume"
+                                            className="btn mt-2 px-3" 
+                                            download="AndrewSutton-Resume"
+                                            href={resume}
+                                        >
+                                            Download Resumé <Article />
+                                        </Button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="text-dark mt-4">
@@ -302,30 +315,32 @@ const MainComponent = () => {
 
             <Collapse in={certOpen} timeout={{enter: 3000, exit: 1000}}>
                 <Paper className="container gradient p-3 my-3 mb-2" elevation={1}>
-                    <div className="row">
-                        <div className="col text-left">
-                            <ul style={{listStyle: "none"}}>
-                                <li>
-                                    <Slide in={certOpen} timeout={3500} direction="up">
-                                        <Button
-                                            onClick={() => window.open(honors)}
-                                            className="mb-2 bg-light text-dark"
-                                        >
-                                            Honors Certificate- NuCamp
-                                        </Button>
-                                    </Slide>
-                                </li>
-                                <li>
-                                    <Slide in={certOpen} timeout={4000} direction="up">
-                                        <Button
-                                            onClick={() => window.open(frontend)}
-                                            className="bg-light text-dark" 
-                                        >
-                                            Front End Web/ Mobile Development- NuCamp
-                                        </Button>
-                                    </Slide>
-                                </li>
-                            </ul>
+                    <div className="row mx-auto">
+                        <div className="col mx-auto">
+                            <Slide in={certOpen} timeout={3500} direction="up">
+                                <img 
+                                    src={honors} 
+                                    alt="honors certificate" 
+                                    height="250" 
+                                    className="rounded mr-3 shadow" 
+                                    onClick={() => {
+                                        setSelectedImage(honors)
+                                        setImageOpen(!imageOpen)
+                                    }}
+                                />
+                            </Slide>
+                            <Slide in={certOpen} timeout={4000} direction="up">
+                                <img 
+                                    src={frontend} 
+                                    alt="front end development certificate" 
+                                    height="250" 
+                                    className="rounded shadow" 
+                                    onClick={() => {
+                                        setSelectedImage(frontend)
+                                        setImageOpen(!imageOpen)
+                                    }}
+                                />
+                            </Slide>
                         </div>
                     </div>
                     <Button 
@@ -361,6 +376,7 @@ const MainComponent = () => {
                                                 setSelectedImage(album)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
@@ -373,6 +389,7 @@ const MainComponent = () => {
                                                 setSelectedImage(marble)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
@@ -385,6 +402,7 @@ const MainComponent = () => {
                                                 setSelectedImage(ellie)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
@@ -397,6 +415,7 @@ const MainComponent = () => {
                                                 setSelectedImage(city)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
@@ -409,6 +428,7 @@ const MainComponent = () => {
                                                 setSelectedImage(swings)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
@@ -421,6 +441,7 @@ const MainComponent = () => {
                                                 setSelectedImage(cover)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            className="shadow"
                                         />
                                     </ImageListItem>
                                 </Slide>
