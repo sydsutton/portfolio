@@ -138,6 +138,6 @@ audio {
 
 .modal-img {
   overflow: hidden;
+  object-fit: contain;
 }
-
 

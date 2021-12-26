@@ -25,7 +25,7 @@ const projects = [
         title: "Cook It Yourself",
         img: `${ciy}`,
         alt: "A recipe search website",
-        description: "A fully responsive single page application (SPA) where a user can find recipes for vaious meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
+        description: "A fully responsive single page application (SPA) where a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
         tech: [
             "HTML/ CSS",
             "Javascript",

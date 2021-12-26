@@ -22,7 +22,8 @@ import {
     Dialog,
     ImageList,
     ImageListItem,
-    Slide
+    Slide,
+    IconButton
  } from '@mui/material'
 
 import {
@@ -33,7 +34,9 @@ import {
     Edit,
     AlternateEmail,
     ArrowUpward,
-    Article, School
+    Article,
+    School,
+    Close
  } from '@mui/icons-material';
 
 import projects from "../projects"
@@ -115,8 +118,10 @@ const MainComponent = () => {
                                                 setSelectedImage(resumeImg)
                                                 setImageOpen(!imageOpen)
                                             }}
+                                            size="small"
+                                            endIcon={<Article />}
                                         >
-                                            View Resumé <Article />
+                                            View Resumé 
                                         </Button>
                                     </div>
                                 </div>
@@ -127,8 +132,10 @@ const MainComponent = () => {
                                             className="btn mt-2 px-3" 
                                             download="AndrewSutton-Resume"
                                             href={resume}
+                                            size="small"
+                                            endIcon={<Article />}
                                         >
-                                            Download Resumé <Article />
+                                            Download Resumé
                                         </Button>
                                     </div>
                                 </div>
@@ -258,6 +265,7 @@ const MainComponent = () => {
                                                                 variant="contained" 
                                                                 className="btn mr-2" 
                                                                 onClick={() => window.open(`${project.demo}`)}
+                                                                size="small"
                                                             >
                                                                 demo
                                                             </Button> 
@@ -267,6 +275,7 @@ const MainComponent = () => {
                                                                 variant="contained" 
                                                                 className="btn mr-2" 
                                                                 onClick={() => window.open(`${project.live}`)}
+                                                                size="small"
                                                             >
                                                                 live
                                                             </Button>
@@ -277,6 +286,7 @@ const MainComponent = () => {
                                                             onClick={() => window.open(`${project.repo}`)} 
                                                             variant="contained" 
                                                             className="btn"
+                                                            size="small"
                                                         >
                                                             code
                                                         </Button>
@@ -300,7 +310,23 @@ const MainComponent = () => {
                     </Paper>
             </Collapse>
 
-            <Dialog open={imageOpen} fullWidth={true} maxWidth={"sm"} sx={{overFlow: "hidden" }} onClose={() => setImageOpen(!imageOpen)} >
+            <Dialog 
+                open={imageOpen} 
+                fullWidth={true} 
+                maxWidth={"sm"} 
+                sx={{overFlow: "hidden" }} 
+                onClose={() => setImageOpen(!imageOpen)} 
+            >
+                <IconButton
+                    onClick={() => setImageOpen(!imageOpen)}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8
+                    }}
+                >
+                    <Close />
+                </IconButton>
                 <img src={selectedImage} alt="" className="modal-img" />
             </Dialog>
 
@@ -322,7 +348,7 @@ const MainComponent = () => {
                                     src={honors} 
                                     alt="honors certificate" 
                                     height="250" 
-                                    className="rounded mr-3 shadow" 
+                                    className="rounded m-2 shadow" 
                                     onClick={() => {
                                         setSelectedImage(honors)
                                         setImageOpen(!imageOpen)
@@ -334,7 +360,7 @@ const MainComponent = () => {
                                     src={frontend} 
                                     alt="front end development certificate" 
                                     height="250" 
-                                    className="rounded shadow" 
+                                    className="rounded m-2 shadow" 
                                     onClick={() => {
                                         setSelectedImage(frontend)
                                         setImageOpen(!imageOpen)
