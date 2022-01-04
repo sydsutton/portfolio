@@ -2,13 +2,31 @@ import yourshelf from "./images/yourshelf.jpg"
 import ciy from "./images/ciy.png"
 import locally from "./images/locally.png"
 import portfolio from "./images/portfolio.png"
+import weather from "./images/weather.png"
 
 const projects = [
+    {
+        title: "QWeather",
+        img: `${weather}`,
+        alt: "A weather application",
+        description: "A React application made to search for current or predicted weather in your area. The user can also save specific zip codes for future searches.",
+        tech: [
+            "HTML/ CSS",
+            "Javascript",
+            "React JS",
+            "REST API's",
+            "React Redux",
+            "Material UI",
+            "Adobe Photoshop"
+        ],
+        repo: "https://github.com/sydsutton/weather-app",
+        live: "https://q-weather.netlify.app"
+    },
     {
         title: "YourShelf",
         img: `${yourshelf}`,
         alt: "A book search application called yourshelf",
-        description: "A React Native application where the user can search for any book, either by title or subject. After loggin in to their account, the user can then save any amount of books in their digital bookshelf.",
+        description: "A React Native application in which the user can search for any book, either by title or subject. After logging in to their account, the user can then save any number of books in their digital bookshelf.",
         tech: [
             "Javascript",
             "React JS",
@@ -25,7 +43,7 @@ const projects = [
         title: "Cook It Yourself",
         img: `${ciy}`,
         alt: "A recipe search website",
-        description: "A fully responsive single page application (SPA) where a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
+        description: "A fully responsive single page application (SPA) in which a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
         tech: [
             "HTML/ CSS",
             "Javascript",

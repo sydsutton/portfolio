@@ -190,8 +190,8 @@ const MainComponent = () => {
                                     </p>
                                 </div>
                                 <ul className="text-left">
-                                    <li>Was in the top 10% of students to graduate with honors</li>
-                                    <li>Had final project showcased to all graduating students during graduation</li>
+                                    <li>Graduate with honors in top 10% of class</li>
+                                    <li>Showcased final project to all graduating students</li>
                                 </ul>
 
                                 <h5 className="font-weight-bold">Bachelor of Arts in Psychology/ Minor in Communications</h5>
@@ -274,7 +274,10 @@ const MainComponent = () => {
                                                             <Button 
                                                                 variant="contained" 
                                                                 className="btn mr-2" 
-                                                                onClick={() => window.open(`${project.live}`)}
+                                                                onClick={() => {
+                                                                    console.log(project.live)
+                                                                    window.open(`${project.live}`)
+                                                                }}
                                                                 size="small"
                                                             >
                                                                 live
