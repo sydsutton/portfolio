@@ -166,8 +166,8 @@ const MainComponent = () => {
                         <Slide in={aboutOpen} timeout={{enter: 3000, exit: 8000}} direction="up">
                             <Card className="col-lg-5 m-3">
                                 <h4 className="mt-3 border-bottom mb-3">About Me</h4>
-                                <p className="text-left">I enjoy creating simple, functional, and effective designs.<br/><br/>An Indoor Skydiving Instructor turned Front End Developer. I wrote 
-                                    my first line of code in Early 2021 and never looked back. Whether it's painting, 
+                                <p className="text-left">I enjoy creating simple, functional, and effective designs.<br/><br/>
+                                    An Indoor Skydiving Instructor turned Front End Developer. Whether it's painting, 
                                     photography, photo editing, or music, I have always loved to create things from scratch; 
                                     naturally web development and design fits me well.<br/> Like a lot of other people in 2021, 
                                     I was looking for a change in careers. After teaching myself how to code for a couple of 
@@ -190,8 +190,8 @@ const MainComponent = () => {
                                     </p>
                                 </div>
                                 <ul className="text-left">
-                                    <li>Graduate with honors in top 10% of class</li>
-                                    <li>Showcased final project to all graduating students</li>
+                                    <li>Graduated with honors in top 10% of class</li>
+                                    <li>Was one of two people to showcase final project to all graduating students</li>
                                 </ul>
 
                                 <h5 className="font-weight-bold">Bachelor of Arts in Psychology/ Minor in Communications</h5>
