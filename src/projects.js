@@ -6,21 +6,21 @@ import weather from "./images/weather.png"
 
 const projects = [
     {
-        title: "QWeather",
-        img: `${weather}`,
-        alt: "A weather application",
-        description: "A React application made to search for current or predicted weather in your area. The user can also save specific zip codes for future searches.",
+        title: "Cook It Yourself",
+        img: `${ciy}`,
+        alt: "A recipe search website",
+        description: "A fully responsive single page application (SPA) in which a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
         tech: [
             "HTML/ CSS",
             "Javascript",
             "React JS",
-            "REST API's",
-            "React Redux",
-            "Material UI",
-            "Adobe Photoshop"
+            "Bootstrap",
+            "Reactstrap",
+            "JSON",
+            "React Router"
         ],
-        repo: "https://github.com/sydsutton/weather-app",
-        live: "https://q-weather.netlify.app"
+        repo: "https://github.com/sydsutton/ReactRecipeApp",
+        live: "https://cookityourself.netlify.app"
     },
     {
         title: "YourShelf",
@@ -40,21 +40,21 @@ const projects = [
         demo: "https://www.youtube.com/watch?v=mc-M280LSMU"
     },
     {
-        title: "Cook It Yourself",
-        img: `${ciy}`,
-        alt: "A recipe search website",
-        description: "A fully responsive single page application (SPA) in which a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
+        title: "QWeather",
+        img: `${weather}`,
+        alt: "A weather application",
+        description: "A React application made to search for current or predicted weather in your area. The user can also save specific zip codes for future searches.",
         tech: [
             "HTML/ CSS",
             "Javascript",
             "React JS",
-            "Bootstrap",
-            "Reactstrap",
-            "JSON",
-            "React Router"
+            "REST API's",
+            "React Redux",
+            "Material UI",
+            "Adobe Photoshop"
         ],
-        repo: "https://github.com/sydsutton/ReactRecipeApp",
-        live: "https://cookityourself.netlify.app"
+        repo: "https://github.com/sydsutton/weather-app",
+        live: "https://q-weather.netlify.app"
     },
     {
         title: "Locally",
