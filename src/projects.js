@@ -6,6 +6,24 @@ import weather from "./images/weather.png"
 
 const projects = [
     {
+        title: "The Newz",
+        // img: `${ciy}`,
+        alt: "A news search website",
+        // description: "A fully responsive single page application (SPA) in which a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
+        tech: [
+            "HTML",
+            "Javascript",
+            "React JS",
+            "RESTful API's",
+            "Almost entirely custom CSS",
+            "Some Bootstrap",
+            "JSON",
+            "React Router"
+        ],
+        repo: "https://github.com/sydsutton/news-app",
+        live: "https://thenewz.netlify.app"
+    },
+    {
         title: "Cook It Yourself",
         img: `${ciy}`,
         alt: "A recipe search website",
