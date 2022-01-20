@@ -3,20 +3,20 @@ import ciy from "./images/ciy.png"
 import locally from "./images/locally.png"
 import portfolio from "./images/portfolio.png"
 import weather from "./images/weather.png"
+import newz from "./images/newz.PNG"
 
 const projects = [
     {
         title: "The Newz",
-        // img: `${ciy}`,
+        img: `${newz}`,
         alt: "A news search website",
-        // description: "A fully responsive single page application (SPA) in which a user can find recipes for various meals. Error handling for the login and feedback forms were implemented using vanilla Javascript.",
+        description: "A fully responsive single page application (SPA) in which a user can search for current or past news articles. I made it a point to use custom CSS for both styling and responsiveness so as to not rely too heavily on libraries.",
         tech: [
-            "HTML",
             "Javascript",
             "React JS",
             "RESTful API's",
             "Almost entirely custom CSS",
-            "Some Bootstrap",
+            "Bootstrap",
             "JSON",
             "React Router"
         ],
