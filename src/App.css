@@ -141,3 +141,8 @@ audio {
   object-fit: contain;
 }
 
+.scrimba {
+  max-width: 80vw;
+}
+
+

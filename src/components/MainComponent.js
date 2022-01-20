@@ -5,6 +5,7 @@ import resume from "../images/AndrewSutton-Resume.pdf"
 
 import honors from "../images/HonorsCertificate.png"
 import frontend from "../images/FrontEnd.png"
+import scrimba from "../images/ScrimbaCert.png"
 import resumeImg from "../images/AndrewSuttonResume.png"
 import me from "../images/me.jpg"
 import album from "../images/gallery/Album.jpg"
@@ -345,7 +346,7 @@ const MainComponent = () => {
             <Collapse in={certOpen} timeout={{enter: 3000, exit: 1000}}>
                 <Paper className="container gradient p-3 my-3 mb-2" elevation={1}>
                     <div className="row mx-auto">
-                        <div className="col mx-auto">
+                        <div className="col mx-auto border border-danger">
                             <Slide in={certOpen} timeout={3500} direction="up">
                                 <img 
                                     src={honors} 
@@ -366,6 +367,18 @@ const MainComponent = () => {
                                     className="rounded m-2 shadow" 
                                     onClick={() => {
                                         setSelectedImage(frontend)
+                                        setImageOpen(!imageOpen)
+                                    }}
+                                />
+                            </Slide>
+                            <Slide in={certOpen} timeout={4000} direction="up">
+                                <img 
+                                    src={scrimba} 
+                                    alt="front end development certificate" 
+                                    height="250" 
+                                    className="scrimba rounded m-2 shadow border border-warning mx-auto" 
+                                    onClick={() => {
+                                        setSelectedImage(scrimba)
                                         setImageOpen(!imageOpen)
                                     }}
                                 />
