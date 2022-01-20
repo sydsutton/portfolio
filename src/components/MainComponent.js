@@ -346,7 +346,7 @@ const MainComponent = () => {
             <Collapse in={certOpen} timeout={{enter: 3000, exit: 1000}}>
                 <Paper className="container gradient p-3 my-3 mb-2" elevation={1}>
                     <div className="row mx-auto">
-                        <div className="col mx-auto border border-danger">
+                        <div className="col mx-auto">
                             <Slide in={certOpen} timeout={3500} direction="up">
                                 <img 
                                     src={honors} 
@@ -376,7 +376,7 @@ const MainComponent = () => {
                                     src={scrimba} 
                                     alt="front end development certificate" 
                                     height="250" 
-                                    className="scrimba rounded m-2 shadow border border-warning mx-auto" 
+                                    className="scrimba rounded m-2 shadow mx-auto" 
                                     onClick={() => {
                                         setSelectedImage(scrimba)
                                         setImageOpen(!imageOpen)
