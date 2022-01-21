@@ -15,10 +15,11 @@ const projects = [
             "Javascript",
             "React JS",
             "RESTful API's",
-            "Almost entirely custom CSS",
+            "Custom CSS",
             "Bootstrap",
             "JSON",
-            "React Router"
+            "React Router",
+            "Adobe Photoshop"
         ],
         repo: "https://github.com/sydsutton/news-app",
         live: "https://thenewz.netlify.app"

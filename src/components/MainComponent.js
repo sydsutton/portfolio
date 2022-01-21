@@ -234,8 +234,8 @@ const MainComponent = () => {
                                     return (
                                     <Slide in={projectOpen} timeout={{enter: (1000 * (index * 2)), exit: 9000}} direction="up">
                                         <Card key={index} className="mt-4 p-3">
-                                            <div className="row mx-auto justify-content-center border-bottom mb-3 w-75">
-                                                <h3 className="font-weight-bold">{project.title}</h3>
+                                            <div className="row mx-auto justify-content-center border-bottom mb-4 w-75">
+                                                <h3 className="font-weight-bold mb-2">{project.title}</h3>
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
