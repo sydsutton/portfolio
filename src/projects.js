@@ -14,6 +14,7 @@ const projects = [
         tech: [
             "Javascript",
             "React JS",
+            "Firebase",
             "RESTful API's",
             "Custom CSS",
             "Bootstrap",
