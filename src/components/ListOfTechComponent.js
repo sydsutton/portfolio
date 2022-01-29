@@ -12,6 +12,7 @@ import vscode from "../images/vscode.png"
 import api from "../images/api.png"
 import photoshop from "../images/photoshop.png"
 import redux from "../images/redux.png"
+import firebase from "../images/firebase.png"
 
 const ListOfTechComponent = () => {
     return (
@@ -53,6 +54,10 @@ const ListOfTechComponent = () => {
                 <div>
                     <img className="text-right mx-2 mb-2" src={github} alt="github" height="50"/>
                     <p className="small">GitHub</p>
+                </div>
+                <div>
+                    <img className="text-right mx-2 mb-2" src={firebase} alt="firebase" height="50"/>
+                    <p className="small">Firebase</p>
                 </div>
                 <div>
                     <img className="text-right mx-2 mb-2" src={vscode} alt="vscode" height="50"/>
