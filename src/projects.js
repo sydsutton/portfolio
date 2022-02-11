@@ -4,8 +4,28 @@ import locally from "./images/locally.png"
 import portfolio from "./images/portfolio.png"
 import weather from "./images/weather.png"
 import newz from "./images/newz.PNG"
+import sthetik from "./images/sthetik.PNG"
 
 const projects = [
+    {
+        title: "SThetik (under construction)",
+        img: `${sthetik}`,
+        alt: "An e-commerce web app",
+        description: "An e-commerce web app that allows users to search for clothing by brand or category, select the size and quanitity of any item, and check out like a real e-commerce site!",
+        tech: [
+            "Javascript",
+            "React JS",
+            "Firebase",
+            "JSON",
+            "Material UI",
+            "SCSS",
+            "Bootstrap",
+            "React Router",
+            "Adobe Photoshop"
+        ],
+        repo: "https://github.com/sydsutton/ecommerce-app",
+        live: "https://sthetik.netlify.app"
+    },
     {
         title: "The Newz",
         img: `${newz}`,
