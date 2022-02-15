@@ -13,6 +13,7 @@ import api from "../images/api.png"
 import photoshop from "../images/photoshop.png"
 import redux from "../images/redux.png"
 import firebase from "../images/firebase.png"
+import sass from "../images/sass.png"
 
 const ListOfTechComponent = () => {
     return (
@@ -46,6 +47,10 @@ const ListOfTechComponent = () => {
                 <div>
                     <img className="text-right mx-2 mb-2" src={bootstrap} alt="bootstrap" height="50"/>
                     <p className="small">Bootstrap</p>
+                </div>
+                <div>
+                    <img className="text-right mx-2 mb-2" src={sass} alt="bootstrap" height="50"/>
+                    <p className="small">SASS</p>
                 </div>
                 <div>
                     <img className="text-right mx-2 mb-2" src={git} alt="git" height="50"/>

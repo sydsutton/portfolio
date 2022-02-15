@@ -20,8 +20,15 @@ const projects = [
             "Material UI",
             "SCSS",
             "Bootstrap",
+            "Local Storage",
             "React Router",
             "Adobe Photoshop"
+        ],
+        problem: [
+            "The items saved in the users cart wouldn't persist between page loads"
+        ],
+        solution: [
+            "Implementing local storage"
         ],
         repo: "https://github.com/sydsutton/ecommerce-app",
         live: "https://sthetik.netlify.app"

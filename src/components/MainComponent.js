@@ -260,6 +260,35 @@ const MainComponent = () => {
                                                         })
                                                     }
                                                     </ul>
+                                                </div>
+                                            </div>
+                                            {project.problem ? 
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h4 className="border-bottom mb-3 pb-2">Problems</h4>
+                                                        <ul>
+                                                            {project.problem.map((problem, index) => {
+                                                                return (
+                                                                    <li key={index} className="text-left">{problem}</li>
+                                                                )
+                                                            })}
+                                                        </ul>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <h4 className="border-bottom mb-3 pb-2">Solutions</h4>
+                                                        <ul>
+                                                            {project.solution.map((solution, index) => {
+                                                                return (
+                                                                    <li key={index} className="text-left">{solution}</li>
+                                                                )
+                                                            })}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            :
+                                            null
+                                            }
+                                                <div className="row mx-auto justify-content-center align-items-center">
                                                     <div className="btn-group">
                                                         {project.demo ? 
                                                             <Button 
@@ -295,7 +324,6 @@ const MainComponent = () => {
                                                             code
                                                         </Button>
                                                     </div>
-                                                </div>
                                             </div>
                                         </Card>
                                     </Slide>
