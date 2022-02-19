@@ -25,10 +25,15 @@ const projects = [
             "Adobe Photoshop"
         ],
         problem: [
-            "The items saved in the users cart wouldn't persist between page loads"
+            "The items saved in the users cart wouldn't persist between page loads",
+            "I couldn't find an easy way to handle pagination for items with more than one page",
+            "If I soley used React Router for navigation in the Navbar, an 'active' class would not automatically be added to the current page"
         ],
         solution: [
-            "Implementing local storage"
+            "Implementing local storage to save items, even after closing the window",
+            "I dynamically 'sliced' the filtered array of items depending on the page number",
+            "I used both Nav.Link and React Router's 'Link' to get the active class I wanted and to not reload the page unnecessarily"
+
         ],
         repo: "https://github.com/sydsutton/ecommerce-app",
         live: "https://sthetik.netlify.app"
@@ -49,8 +54,43 @@ const projects = [
             "React Router",
             "Adobe Photoshop"
         ],
+        problem: [
+            "I didn't have a way to store a users email and password in order to log in/ log out",
+            "I had trouble finding a reusable way to validate the strength of the users password when creating an account"
+        ],
+        solution: [
+            "I implemented Firebase Authentication to make it easier to store user information",
+            "I created functions that pass the users password in as a parameter and use RegEx to validate password strength"
+        ],
         repo: "https://github.com/sydsutton/news-app",
         live: "https://thenewz.netlify.app"
+    },
+    {
+        title: "QWeather",
+        img: `${weather}`,
+        alt: "A weather application",
+        description: "A React application made to search for current or predicted weather in your area. The user can also save specific zip codes for future searches.",
+        tech: [
+            "HTML/ CSS",
+            "Javascript",
+            "React JS",
+            "REST API's",
+            "React Redux",
+            "Material UI",
+            "Adobe Photoshop"
+        ],
+        problem: [
+            "With the API that I intended to use, you could only search by latitude and longitude to get the desired data",
+            "The wind direction in JSON was in degrees (out of 360), not cardinal directions",
+            "The time in the JSON data fetched was in unix timestamps, not in a readable time format"
+        ],
+        solution: [
+            "I used a separate API to get the latitude and longitude from a specific zip code in order to get the correct data",
+            "I found a formula that gets the index of an array of cardinal directions depending on the degrees",
+            "I created a reusable function that takes a unix timestamp in as a parameter and coverts it to a standard time format"
+        ],
+        repo: "https://github.com/sydsutton/weather-app",
+        live: "https://q-weather.netlify.app"
     },
     {
         title: "Cook It Yourself",
@@ -85,23 +125,6 @@ const projects = [
         ],
         repo: "https://github.com/sydsutton/book-app-native",
         demo: "https://www.youtube.com/watch?v=mc-M280LSMU"
-    },
-    {
-        title: "QWeather",
-        img: `${weather}`,
-        alt: "A weather application",
-        description: "A React application made to search for current or predicted weather in your area. The user can also save specific zip codes for future searches.",
-        tech: [
-            "HTML/ CSS",
-            "Javascript",
-            "React JS",
-            "REST API's",
-            "React Redux",
-            "Material UI",
-            "Adobe Photoshop"
-        ],
-        repo: "https://github.com/sydsutton/weather-app",
-        live: "https://q-weather.netlify.app"
     },
     {
         title: "Locally",

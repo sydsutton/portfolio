@@ -266,20 +266,26 @@ const MainComponent = () => {
                                                 <div className="row">
                                                     <div className="col-md-6">
                                                         <h4 className="border-bottom mb-3 pb-2">Problems</h4>
-                                                        <ul>
+                                                        <ul className="small">
                                                             {project.problem.map((problem, index) => {
                                                                 return (
-                                                                    <li key={index} className="text-left">{problem}</li>
+                                                                    <>
+                                                                        <li key={index} className="text-left">{problem}</li>
+                                                                        <br/>
+                                                                    </>
                                                                 )
                                                             })}
                                                         </ul>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <h4 className="border-bottom mb-3 pb-2">Solutions</h4>
-                                                        <ul>
+                                                        <ul className="small">
                                                             {project.solution.map((solution, index) => {
                                                                 return (
-                                                                    <li key={index} className="text-left">{solution}</li>
+                                                                    <>
+                                                                        <li key={index} className="text-left">{solution}</li>
+                                                                        <br/>
+                                                                    </>
                                                                 )
                                                             })}
                                                         </ul>
