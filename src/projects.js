@@ -8,7 +8,7 @@ import sthetik from "./images/sthetik.PNG"
 
 const projects = [
     {
-        title: "SThetik (under construction)",
+        title: "SThetik",
         img: `${sthetik}`,
         alt: "An e-commerce web app",
         description: "An e-commerce web app that allows users to search for clothing by brand or category, select the size and quanitity of any item, and check out like a real e-commerce site!",
