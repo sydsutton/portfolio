@@ -9,7 +9,7 @@ import syk from "./images/syk.PNG"
 
 const projects = [
     {
-        title: "Band Website (under construction)",
+        title: "Band Website",
         img: `${syk}`,
         alt: "A band website",
         description: "The official site of the band 'Soul You Know'. It has a working mailing list submission form and a contact form that goes directly to the band's email.",
